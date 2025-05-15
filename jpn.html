@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="jpn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エヴァジオン・ヴォヤージュ</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+
+    <header>
+        <video autoplay muted loop id="myVideo" class="video_container">
+            <source src="img/header_bg_animated.mp4" type="video/mp4">
+        </video>
+        <nav id="mainNav" class="header_nav">
+            <div class="burger_menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="#" class="header_logo" id="logo"><img src="img/explore_with_us-no_bg.svg" alt="Evasion"></a>
+            <a href="#" class="home_icone" id="home"><img src="img/home_logo.svg" alt="Evasion Accueil" title="Evasion Accueil"></a>
+            <ul class="header_menu">
+                <li class="menu-item" data-target="destination-preview">
+                    <a href="#destination">目的地</a>
+                </li>
+                <li class="menu-item" data-target="location-preview">
+                    <a href="#services">ロケーション</a>
+                </li>
+                <li class="menu-item" data-target="blog-preview">
+                    <a href="#blog">ブログ</a>
+                </li>
+                <li class="menu-item" data-target="service-preview">
+                    <a href="#services">サービス</a>
+                </li>
+                <li class="menu-item" data-target="call-preview">
+                    <a href="#">📞 01 23 45 67 89</a>
+                </li>
+            </ul>
+        </nav>
+        <h1>エスケープへようこそ<br><span>（エヴァジオン）</span></h1>
+        <article class="hero_step">
+            <p>あなたの快適ゾーンから出て、並外れた冒険に出かける準備をしてください！</p>
+            <p>私たちは、ユニークでほとんど知られていない目的地を求める冒険家を鼓舞し、導くためにここにいます。</p>
+        </article>
+        <div class="search">
+            <p>入力してください</p>
+            <form action="" method="get">
+                <div class="">
+                    <input type="text" name="name" id="name" placeholder="出発地" required class="search_input" />
+                </div>
+                <div class="">
+                    <input type="text" name="text" id="text" placeholder="期間" required class="search_input" />
+                </div>
+                <div>
+                    <input type="date" name="date" id="date" placeholder="出発日" required class="search_input" />
+                </div>
+                <div>
+                    <input type="submit" value="検索" class="search_button" />
+                </div>
+            </form>
+        </div>
+        <div class="travel_plan">
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu1">滞在</button>
+                <div id="menu1" class="menu hidden">
+                    <a href="#">ソコトラ</a>
+                    <a href="#">ヤクーツク</a>
+                    <a href="#">ダナキル</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu2">フライト</a>
+                <div id="menu2" class="menu hidden">
+                    <a href="#">エア・スペース</a>
+                    <a href="#">ステップ・エア</a>
+                    <a href="#">エア・ユーエス</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu3">クルーズ</a>
+                <div id="menu3" class="menu hidden">
+                    <a href="#">紅海</a>
+                    <a href="#">ドナウ</a>
+                    <a href="#">レナ</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu4">ホテル</a>
+                <div id="menu4" class="menu hidden">
+                    <a href="#">サマー・ランド</a>
+                    <a href="#">ステルク</a>
+                    <a href="#">セルド</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu5">レンタル</a>
+                <div id="menu5" class="menu hidden">
+                    <a href="#">カーエクスプレス</a>
+                    <a href="#">スピードライド</a>
+                    <a href="#">エコモーション</a>
+                </div>
+            </div>
+
+            <a href="#"><button class="plan_button">旅行を計画する</button></a>
+        </div>
+
+        <div data-target="#destination" id="explore_button">
+            <svg viewBox="0 0 152 90" xmlns="http://www.w3.org/2000/svg" width="70" height="40">
+                <path id="path1" d="M 38.126 65.752 C 11.542 47.586, 5.420 42.587, 6.049 39.564 C 7.705 31.603, 14.482 34.255, 44.839 54.746 L 74.480 74.752 L 104.122 54.746 C 134.479 34.255, 141.256 31.603, 142.912 39.564 C 143.541 42.587, 137.419 47.586, 110.835 65.752 C 92.765 78.101, 76.405 88.205, 74.480 88.205 C 72.556 88.205, 56.196 78.101, 38.126 65.752 Z"
+                    fill="#131C46" />
+                <path id="path2" d="M 45.855 37.358 C 25.187 21.455, 20.427 17.080, 20.916 14.433 C 22.204 7.465, 27.472 9.786, 51.074 27.723 L 74.118 45.236 L 97.163 27.723 C 120.765 9.786, 126.033 7.465, 127.321 14.433 C 127.810 17.080, 123.050 21.455, 102.382 37.358 C 88.333 48.167, 75.615 57.012, 74.118 57.012 C 72.622 57.012, 59.903 48.167, 45.855 37.358 Z"
+                    fill="#fff" />
+            </svg>
+        </div>
+    </header>
+
+    <main>
+
+        <button id="scrollTopBtn"><img src="img/OnTopButton.svg" alt="On Top"></button>
+
+        <section id="destination-preview" class="preview-container">
+
+            <a href="jpn_socotra.html" class="destination">
+                <div class="destination_figure">
+                    <img src="img/socotra_yemen.jpg" alt="Front Image"/>
+                </div>
+                <div class="destination_caption">
+                    <h4>🏝 ソコトラ、イエメン</h4>
+                    <p>時を超えた旅</p>
+                </div>
+            </a>
+
+            <a href="#" class="destination">
+                <div class="destination_caption">
+                    <h4>❄️ ヤクーツク、シベリア</h4>
+                    <p>極限に挑戦</p>
+                </div>
+                <div class="destination_figure">
+                    <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image" />
+                </div>
+            </a>
+
+            <a href="jpn_socotra.html" class="destination">
+                <div class="destination_figure">
+                    <img src="img/bg_danikil_ethiopia (3).jpg" alt="Front Image" />
+                </div>
+                <div class="destination_caption">
+                    <h4>🌋 ダナキル、エチオピア</h4>
+                    <p>地球の奥深くへ</p>
+                </div>
+            </a>
+
+        </section>
+
+        <section id="blog-preview" class="preview-container blog_menu">
+            <a href=""><strong>記事1：</strong> ボルネオの忘れられたジャングルで - 野生の自然の中心への旅</a>
+            <a href=""><strong>記事2：</strong> シベリア鉄道 - レールのリズムに乗った冒険。</a>
+            <a href=""><strong>記事3：</strong> 炉端の物語 - 冒険家たちの物語。</a>
+        </section>
+
+        <section id="service-preview" class="preview-container service_list">
+            <a href="">オーダーメイド旅行</a>
+            <a href="">旅行保険</a>
+            <a href="">レンタル</a>
+            <a href="">24時間年中無休のサポート</a>
+            <a href="">競争力のある価格</a>
+        </section>
+
+        <section id="location-preview" class="preview-container location_list">
+            <a href="">🏨 ホテル</a>
+            <a href="">🏡 Airbnb</a>
+            <a href="">🎪 キャンプ場</a>
+            <a href="">🏠 B&B</a>
+            <a href="">⛴️ ハウスボート</a>
+            <a href="">🏘️ シェア宿泊</a>
+            <a href="">🚗 レンタカー</a>
+            <a href="">🚲 自転車とスクーター</a>
+        </section>
+
+        <section id="call-preview" class="preview-container">
+            <a href="#contact" class="call">
+                <img src="img/advisor.png" alt="advisor" />
+                <img src="img/phonecall.svg" alt="phone" class="phone_bounce">
+                <p><strong>アドバイスが必要ですか？</strong><br>私たちの専門家があなたのプロジェクトの<br>あらゆる段階でお手伝いします！</p>
+            </a>
+        </section>
+
+
+        <section id="destination">
+            <h2>人気の目的地</h2>
+            <div class="box_destinations">
+                <h4>私たちの特別な目的地からあなたの次の冒険を選んでください</h4>
+                <figure class="destination_card">
+                    <div class="flip-card perspective" title="この目的地の詳細はこちらをクリック">
+                        <div class="flip-inner">
+                            <div class="flip-front backface-hidden">
+                                <img src="img/socotra_yemen.jpg" alt="Front Image" />
+                            </div>
+                            <div class="flip-back">
+                                <a href="jpn_socotra.html">
+                                    <div id="map" class="maptour"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption class="destination_place">
+                        <a href="jpn_socotra.html" title="この目的地の詳細はこちらをクリック">
+                            <h4>🏝 ソコトラ、イエメン</h4>
+                            <p>
+                                まるで別世界のような島で、時を超えた旅を。自然が魔法を再発明するソコトラ。
+                                <br><strong><span>&lt;&lt;</span>天気 🌤 18°</strong>
+                            </p>
+                        </a>
+                    </figcaption>
+                </figure>
+                <figure class="destination_card">
+                    <figcaption class="destination_place">
+                        <a href="#" title="この目的地の詳細はこちらをクリック">
+                            <h4>❄️ ヤクーツク、シベリア</h4>
+                            <p>
+                                極限に挑戦：魅惑的な極地の設定の中で、地球上で最も寒い冬を体験してください。
+                                <br><strong>天気 🌤 12°<span>>></span></strong>
+                            </p>
+                        </a>
+                    </figcaption>
+                    <div class="flip-card perspective" title="この目的地の詳細はこちらをクリック">
+                        <div class="flip-inner">
+                            <div class="flip-front backface-hidden">
+                                <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image" />
+                            </div>
+                            <div class="flip-back">
+                                <a href="#">
+                                    <div id="map2" class="maptour"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                <figure class="destination_card">
+                    <div class="flip-card perspective" title="この目的地の詳細はこちらをクリック">
+                        <div class="flip-inner">
+                            <div class="flip-front backface-hidden">
+                                <img src="img/bg_danikil_ethiopia (1).jpg" alt="Front Image" />
+                            </div>
+                            <div class="flip-back">
+                                <a href="#">
+                                    <div id="map3" class="maptour"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption class="destination_place">
+                        <a href="#" title="この目的地の詳細はこちらをクリック">
+                            <h4>🌋 ダナキル、エチオピア</h4>
+                            <p>
+                                地球の奥深くへ：ダナキルは、神秘と荒々しい美しさの間で、火と塩の風景を明らかにします。
+                                <br><strong><span>&lt;&lt;</span>天気 🌤 22°</strong>
+                            </p>
+                        </a>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="advice">
+            <div class="practical_advice">
+                <div class="advice_title">
+                    <h4>実用的な<br>アドバイス</h4>
+                </div>
+                <div class="advice_content">
+                    <p>
+                        最安値を得るために、フライトを2〜3か月前に予約してください。
+                    </p>
+                    <p>
+                        都市部の公共交通機関パスと、遠隔地での事前レンタカーを選択してください。
+                    </p>
+                    <p>
+                        より良い取引のために、価格アラートにサインアップし、旅行日に柔軟に対応してください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h3>アドベンチャ\u30fcブログ</h3>
+            <article class="blog_content">
+                <a><strong>記事1：</strong> ボルネオの忘れられたジャングルで - 野生の自然の中心への旅
+                </a>
+                <a><strong>記事2：</strong> シベリア鉄道 - レールのリズムに乗った冒険。</a>
+                <a><strong>記事3：</strong> 炉端の物語 - 冒険家たちの物語。</a>
+            </article>
+        </section>
+
+        <section id="services">
+            <h3>私たちのサ\u30fcビス</h3>
+            <div class="box_services_A">
+                <figure class="service">
+                    <figcaption class="service_content">
+                        <h5>オ\u30fcダ\u30fcメイド旅行</h5>
+                        <p>各旅行は、お客様の特定のニ\u30fcズに合わせて設計されています。</p>
+                    </figcaption>
+                    <img src="img/service_perso.png" alt="service">
+                </figure>
+                <figure class="service">
+                    <img src="img/service_loca.png" alt="service">
+                    <figcaption class="service_content">
+                        <h5>旅行保険</h5>
+                        <p>私たちの保険ソリュ\u30fcションで安心して旅行してください</p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="box_services_B">
+                <figure class="service">
+                    <img src="img/service_loca.png" alt="service">
+                    <figcaption class="service_content">
+                        <h5>レンタル</h5>
+                        <p>快適な宿泊施設と交通手段。</p>
+                    </figcaption>
+                </figure>
+                <figure class="service">
+                    <figcaption class="service_content">
+                        <h5>24時間年中無休のサポ\u30fcト</h5>
+                        <p>私たちは、旅行の前、最中、後に、あなたのためにここにいます</p>
+                    </figcaption>
+                    <img src="img/service_assist.png" alt="service">
+                </figure>
+                <figure class="service">
+                    <figcaption class="service_content">
+                        <h5>競争力のある価格</h5>
+                        <p>銀行を壊すことなく、ユニ\u30fcクな冒険を体験してください。</p>
+                    </figcaption>
+                    <img src="img/service_price.png" alt="service">
+                </figure>
+            </div>
+        </section>
+
+        <section id="customer_reviews">
+            <h3>お客様の声</h3>
+            <div class="box_reviews">
+                <figure class="review">
+                    <img src="img/reviewer_photo (1).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>O. ノ\u30fcド</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>とても帰りたがっています。アマゾンを訪れてください</p>
+                    </figcaption>
+                </figure>
+                <figure class="review">
+                    <img src="img/reviewer_photo (2).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>H. ポ\u30fcル</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>本格的で忘れられない体験。</p>
+                    </figcaption>
+                </figure>
+                <figure class="review">
+                    <img src="img/reviewer_photo (3).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>M. マリ\u30fc</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>私が想像もしなかった場所への信じられないほどの旅行！</p>
+                    </figcaption>
+                </figure>
+                <figure class="review">
+                    <img src="img/reviewer_photo (4).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>T. マチュ\u30fc</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>東京は素晴らしかった、その温泉。ぜひ試してみてください！</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>見積もりが必要な場合は、<br><span>メッセ\u30fcジを残してください</span></h2>
+            <div class="contact_form">
+                <article class="message">
+                    <label for="message">あなたのリクエスト / プロジェクトの説明</label>
+                    <textarea id="message" placeholder="こんにちは！！！メッセ\u30fcジに署名することを忘れないでください（名前）😃"></textarea>
+                </article>
+
+                <article class="email">
+                    <input type="email" id="email" placeholder="あなたのメ\u30fcルアドレス">
+                    <button type="submit" class="send_button">送信</button>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer_menu">
+            <article>
+                <h3>目的地</h3>
+                <ul class="footer_links">
+                    <li><a href="jpn_socotra.html">ソコトラ、イエメン</a></li>
+                    <li><a href="#">ヤク\u30fcツク、シベリア</a></li>
+                    <li><a href="#">ダナキル、エチオピア</a></li>
+                    <li><a href="#">ルクソ\u30fcル、エジプト</a></li>
+                    <li><a href="#">シドニ\u30fc、オ\u30fcストラリア</a></li>
+                    <li><a href="#">ラム、ケニア</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>私たちのサ\u30fcビス</h3>
+                <ul class="footer_links">
+                    <li><a href="#services">オ\u30fcダ\u30fcメイド旅行</a></li>
+                    <li><a href="#services">旅行保険</a></li>
+                    <li><a href="#services">ホテルレンタル</a></li>
+                    <li><a href="#services">24時間年中無休のサポ\u30fcト</a></li>
+                    <li><a href="#services">競争力のある価格</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <figure>
+                    <h3>連絡先</h3>
+                    <ul class="footer_links">
+                        <li><a href="#contact">📞 (+81) 01 23 45 67 89</a></li>
+                        <li><a href="#contact">✉️ evasion@voyage.jpn</a></li>
+                        <li><a href="#contact">🛖 4 evasion 番地, 58000</a></li>
+                    </ul>
+                </figure>
+
+                <figure>
+                    <h3>パ\u30fcトナ\u30fc</h3>
+                    <ul class="footer_links">
+                        <li><a href="#">エヴァジオン・エアラインズ</a></li>
+                        <li><a href="#">>エヴァジオン・ツーリスティック</a></li>
+                    </ul>
+                </figure>
+            </article>
+
+            <article>
+                <h3>言語</h3>
+                <ul class="footer_links">
+                    <li><a href="jpn.html">日本語</a></li>
+                    <li><a href="index.html">Français</a></li>
+                    <li><a href="en.html">English</a></li>
+                </ul>
+            </article>
+            <article class="about_us">
+                <h2>私たちについて</h2>
+                <p>
+                    長年、私たちは旅行者にツ\u30fcリストガイドの古典的な境界線を越えるように促すことを夢見てきました。
+                    私たちの目標はシンプ\u30fcルです。世界の隠された美しさを明らかにし、地球の多様性を祝福することです。<br><br>
+                    私たちは、人里離れたジャングルから孤立した山々まで、遠隔地を探索する幸運に恵まれた、心の底から冒険好きな旅行愛好家のチ\u30fcムです。
+                    私たちのサイトの各スト\u30fcリ\u30fcと提案は、私たちの経験と本格的な旅行への愛情の結果です。
+                </p>
+            </article>
+        </div>
+
+        <div class="footer_logo">
+            <a href="#"><img src="img/explore_with_us-no_bg.svg" alt="Footer logo" class="travel_logo"></a>
+            <article>
+                <h3>利用可能な支払い方法</h3>
+                <div class="footer_logo_links">
+                    <a href="https://www.paypal.com/fr/home"><img title="Paypal" src="img/logo_paypal.svg" alt="Footer logo"></a>
+                    <a href="https://www.mastercard.fr/fr-fr.html"><img title="Mastercard" src="img/logo_mastercard.svg" alt="Footer logo"></a>
+                    <a href="https://www.visa.fr/"><img title="Visa" src="img/logo_visa.svg" alt="Footer logo"></a>
+                </div>
+            </article>
+
+            <article>
+                <h3>常時接続</h3>
+                <div class="footer_logo_links">
+                    <a href="https://www.whatsapp.com/?lang=fr_FR"><img title="Whatsapp" src="img/logo_whatsapp.svg" alt="Footer logo"></a>
+                    <a href="https://x.com/Accueil"><img title="TwitterX" src="img/logo_twitterx.svg" alt="Footer logo"></a>
+                    <a href="https://www.facebook.com/"><img title="Facebook" src="img/logo_facebook.svg" alt="Footer logo"></a>
+                    <a href="https://www.instagram.com/"><img title="Instagram" src="img/logo_instagram.svg" alt="Footer logo"></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="rights">
+            <a href="#">法的事項 &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">個人デ\u30fcタ &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">利用規約 &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">©évasion_voyage_by_C&S</a>
+        </div>
+    </footer>
+    <script src="js/cookies.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/navscroll.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/mapdisplay.js"></script>
+    <script src="js/navpreview.js"></script>
+    <script src="js/onTopButton.js"></script>
+    <script src="js/expButton.js"></script>
+</body>
+
+</html>

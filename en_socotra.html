@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evasion Voyage</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/socotra.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+
+    <header>
+        <video autoplay muted loop id="myVideo" class="video_container">
+            <source src="../medias/bg_images/bg-animated-yemen.mp4" type="video/mp4">
+        </video>
+        <nav id="mainNav" class="header_nav">
+            <div class="burger_menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="en.html" class="header_logo" id="logo"><img src="img/explore_with_us-no_bg.svg" alt=""></a>
+            <a href="en.html" class="home_icone" id="home"><img src="img/home_logo.svg" alt="Evasion Accueil"
+                    title="Evasion Accueil"></a>
+            <ul class="header_menu">
+                <li class="menu-item active" data-target="destination-preview">
+                    <a href="en.html#destination">Destinations</a>
+                </li>
+                <li class="menu-item" data-target="location-preview">
+                    <a href="en.html#services">Locations</a>
+                </li>
+                <li class="menu-item" data-target="blog-preview">
+                    <a href="en.html#blog">Blog</a>
+                </li>
+                <li class="menu-item" data-target="service-preview">
+                    <a href="en.html#services">Services</a>
+                </li>
+                <li class="menu-item" data-target="call-preview">
+                    <a href="#">📞 01 23 45 67 89</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <button id="scrollTopBtn"><img src="img/OnTopButton.svg" alt="On Top"></button>
+
+    <section id="destination-preview" class="preview-container">
+
+        <a href="en_socotra.html" class="destination">
+            <div class="destination_figure">
+                <img src="img/socotra_yemen.jpg" alt="Front Image"/>
+            </div>
+            <div class="destination_caption">
+                <h4>🏝 Socotra, Yemen</h4>
+                <p>Travel out of time</p>
+            </div>
+        </a>
+
+        <a href="#" class="destination">
+            <div class="destination_caption">
+                <h4>❄️ Yakutsk, Siberia</h4>
+                <p>Dare the extreme</p>
+            </div>
+            <div class="destination_figure">
+                <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image" />
+            </div>
+        </a>
+
+        <a href="en_socotra.html" class="destination">
+            <div class="destination_figure">
+                <img src="img/bg_danikil_ethiopia (3).jpg" alt="Front Image" />
+            </div>
+            <div class="destination_caption">
+                <h4>🌋 Danakil, Ethiopia</h4>
+                <p>Enter the bowels of the Earth</p>
+            </div>
+        </a>
+
+    </section>
+
+    <section id="blog-preview" class="preview-container blog_menu">
+        <a href=""><strong>Article 1 :</strong> In the forgotten jungles of Borneo - A journey to the heart of the
+            wild nature</a>
+        <a href=""><strong>Article 2 :</strong> the Trans-Siberian - An adventure to the rhythm of the rails.</a>
+        <a href=""><strong>Article 3 :</strong> Stories around the fire - Tales of adventurers.</a>
+    </section>
+
+    <section id="service-preview" class="preview-container service_list">
+        <a href="">Personalized Trips</a>
+        <a href="">Travel insurance</a>
+        <a href="">Rentals</a>
+        <a href="">24/7 Assistance</a>
+        <a href="">Competitive Prices</a>
+    </section>
+
+    <section id="location-preview" class="preview-container location_list">
+        <a href="">🏨 Hotels</a>
+        <a href="">🏡 Airbnb</a>
+        <a href="">🎪 Campsites</a>
+        <a href="">🏠 Guesthouses</a>
+        <a href="">⛴️ Houseboats</a>
+        <a href="">🏘️ Shared accommodations</a>
+        <a href="">🚗 Car rental</a>
+        <a href="">🚲 Bike and scooters</a>
+    </section>
+
+    <section id="call-preview" class="preview-container">
+        <a href="#contact" class="call">
+            <img src="img/advisor.png" alt="advisor" class="advisors" />
+            <img src="img/phonecall.svg" alt="phone" class="phone_bounce">
+            <p><strong>Need advice? </strong><br>Our expert is here to help you <br>at every step of your project!</p>
+        </a>
+    </section>
+
+
+    <section id="socotra_tour">
+        <div class="socotra_content">
+            <h3>Come and discover Socotra</h3>
+            <p class="description">
+                An isolated gem in the Indian Ocean off the coast of Yemen, Socotra is a dry and mountainous island whose
+                landscapes seem to belong to another planet.
+                Listed as a UNESCO World Heritage Site, this island is a sanctuary of biodiversity unique in the world.
+                More than a third of its flora is found nowhere else on the globe.
+                <br><br>
+                The strange silhouettes of the Dragonblood trees, with their umbrella-shaped tops, dominate the high plateaus,
+                while the unspoiled beaches of Qalansiyah and Arher offer a striking contrast of white sands, blue seas, and
+                rugged dunes.
+
+                <br><br>
+                The Diksam plateau, in the heart of the island, reveals breathtaking panoramas of deep canyons populated by
+                endemic species adapted to extreme conditions.
+                Caves like Hoq contain immense stalactites and ancient inscriptions, testimonies to the island's commercial
+                past linking it to ancient civilizations.
+                Wet valleys like Ayhaft give birth to life in the form of rare birds, palm trees, and freshwater pools nestled
+                among the rocks.
+
+                <br><br>
+                Largely untouched by mass tourism, Socotra remains a natural sanctuary almost out of time.
+                It is a raw and powerful destination where every place evokes the origins of the world and the autonomy of
+                life.
+            </p>
+
+            <article class="tourist_spots">
+                <h4>⚓ Tourist spots</h4>
+                <ul>
+                    <li><strong>👉 Spot 1:</strong> Arrival in Hadibo (Socotra) - Flights from Cairo or Salalah (Oman).</li>
+                    <li><strong>👉 Spot 2:</strong> Ras Shuab Beach - Boat trip from Qalansiyah.</li>
+                    <li><strong>👉 Spot 3:</strong> Diksam Mountains - Hiking accessible by 4x4.</li>
+                    <li><strong>👉 Spot 4:</strong> Wadi Ayheft - Visit by off-road vehicle.</li>
+                    <li><strong>👉 Spot 5:</strong> Free exploration or return to Hadibo.</li>
+                </ul>
+            </article>
+
+            <article class="wheather_info">
+                <p>
+                    Average temperature: ☀️ <span>25 to 30°C</span>
+                    <br>A tropical climate with little rainfall, ideal for excursions and swimming.
+                </p>
+            </article>
+
+            <article class="price_info">
+                <p>💰 From €4,950, experience incredible moments.</p>
+            </article>
+            <a href=""><button class="booking_button">Book now</button></a>
+        </div>
+
+        <div class="carousel_wheather_advice">
+            <article>
+                <div class="carousel-images">
+                    <img src="img/carou_images/yemen_1.jpg" class="active" alt="Socotra">
+                    <img src="img/carou_images/yemen_2.jpg" alt="Socotra">
+                    <img src="img/carou_images/yemen_3.jpg" alt="Socotra">
+                    <img src="img/carou_images/yemen_4.jpg" alt="Socotra">
+                </div>
+
+                <div class="wheather_widget" id="ww_5fd73f78f4a" v='1.3' loc='id'
+                    a='{"t":"responsive","lang":"fr","sl_lpl":1,"ids":["wl4331"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#D32F2F","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FFFFFF","cl_odd":"#0000000a"}'>
+                    More forecasts: <a href="https://oneweather.org/fr/paris/25_days/" id="ww_5fd73f78f4a_u"
+                        target="_blank">25 day weather forecast</a>
+                </div>
+            </article>
+
+
+            <div class="tour_practical_advice">
+                <h4>🛠️ Practical advice</h4>
+                <p>
+                    Bring hiking shoes for exploring the mountains and a mask or snorkel for admiring the incredible
+                    seabeds.
+                    <br><br>Recommendations before your trip can be found in the <a href="#recommandation"
+                        class="link_to_advising">map tour 👇</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="Map_Tour">
+            <div id="nav-items"></div>
+
+            <div id="map-container">
+                <div id="map"></div>
+
+                <div id="info-panel"></div>
+            </div>
+
+            <div id="legend"></div>
+        </div>
+    </section>
+
+
+    <section id="recommandation">
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/passport.svg" alt="Passport">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validated">
+                <p>A valid passport is required to enter Yemen.
+                    <br>Visas are not issued upon arrival. Prior request is required.</p>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/vaccine.svg" alt="Vaccines">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validated">
+                <h4>Recommended:</h4>
+                <p>
+                    Hepatitis A
+                    <br>Typhoid
+                    <br>Tetanus
+                    <br>Rabies
+                </p>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/currency.svg" alt="Currency">
+                <div class="separator"></div>
+
+                <section class="currency-conversion">
+                    <h4>💱 Currency exchange rates</h4>
+                    <label for="userCurrency">Your currency:</label>
+                    <select id="userCurrency">
+                        <option value="EUR">Euro (EUR)</option>
+                        <option value="USD">US Dollar (USD)</option>
+                        <option value="GBP">Pound Sterling (GBP)</option>
+                        <option value="CAD">Canadian Dollar (CAD)</option>
+                        <option value="JPY">Japanese Yen (JPY)</option>
+                    </select>
+
+                    <label for="destinationCurrency">Destination currency:</label>
+                    <select id="destinationCurrency">
+                        <option value="JPY">Japan (JPY)</option>
+                        <option value="USD">United States (USD)</option>
+                        <option value="MAD">Morocco (MAD)</option>
+                        <option value="THB">Thailand (THB)</option>
+                        <option value="IDR">Indonesia (IDR)</option>
+                    </select>
+
+                    <div id="conversionResult">Loading rates...</div>
+                </section>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/phone.svg" alt="Phone">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validated">
+                <p>Mobile phone coverage is limited.
+                    <br>Internet access is unstable or non-existent outside of Hadibo. Bring an external battery and a local
+                    SIM card.</p>
+            </div>
+            <div class="separator"></div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer_menu">
+            <article>
+                <h3>Destinations</h3>
+                <ul class="footer_links">
+                    <li><a href="en_socotra.html">Socotra, Yemen</a></li>
+                    <li><a href="#">Yakutsk, Siberia</a></li>
+                    <li><a href="#">Danakil, Ethiopia</a></li>
+                    <li><a href="#">Luxor, Egypt</a></li>
+                    <li><a href="#">Sydney, Australia</a></li>
+                    <li><a href="#">Lamu, Kenya</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Our services</h3>
+                <ul class="footer_links">
+                    <li><a href="en.html#services">Personalized Trip</a></li>
+                    <li><a href="en.html#services">Travel insurance</a></li>
+                    <li><a href="en.html#services">Hotel Rental</a></li>
+                    <li><a href="en.html#services">24/7 Assistance</a></li>
+                    <li><a href="en.html#services">Competitive Prices</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <figure>
+                    <h3>Contact</h3>
+                    <ul class="footer_links">
+                        <li><a href="#contact">📞 (+44) 01 23 45 67 89</a></li>
+                        <li><a href="#contact">✉️ evasion@voyage.en</a></li>
+                        <li><a href="#contact">🛖 4 evasion, 58000</a></li>
+                    </ul>
+                </figure>
+
+                <figure>
+                    <h3>Our partners</h3>
+                    <ul class="footer_links">
+                        <li><a href="#">Evasion Airlines</a></li>
+                        <li><a href="#">Evasion Touristique</a></li>
+                    </ul>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Languages</h3>
+                <ul class="footer_links">
+                    <li><a href="index.html">French</a></li>
+                    <li><a href="en.html">English</a></li>
+                    <li><a href="jpn.html">Japanese</a></li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="rights">
+            <a href="#">Legal Notice &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">Personal Data &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">Terms and Conditions &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">©évasion_voyage_by_C&S</a>
+        </div>
+    </footer>
+
+    <script async src="https://app3.weatherwidget.org/js/?id=ww_5fd73f78f4a"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/navscroll.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="./js/maptour.js"></script>
+    <script src="./js/carroussel.js"></script>
+    <script src="./js/currency.js"></script>
+    <script src="./js/navpreview.js"></script>
+    <script src="./js/onTopButton.js"></script>
+    <script src="./js/expButton.js"></script>
+</body>
+
+</html>

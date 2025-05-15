@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evasion Voyage</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+<!-- -------cookies section------------- -->
+    <!-- <section class="cookie" id="CookieBox">
+        <div class="content">
+            <p><strong>La protection de ta vie privée est essentielle pour Evasion Voyage</strong>
+                <br><br>Nous utilisons des cookies 🍪 pour améliorer votre expérience, 
+            <p><strong>La protection de ta vie privée est essentielle pour Evasion Voyage</strong>
+                <br><br>Nous utilisons des cookies 🍪 pour améliorer votre expérience, 
+                analyser notre trafic et personnaliser votre contenu. 
+
+                <br><br><strong>Plus de détails sur l'utilisation des cookies 👇</strong>
+                <br><br><strong>Plus de détails sur l'utilisation des cookies 👇</strong>
+                <br><br>Les cookies nous permettent de :
+                <br><strong>- Assurer le bon fonctionnement du site</strong> (cookies essentiels).
+                <br><strong>- Analyser le trafic et les performances</strong> pour améliorer l’expérience utilisateur.
+                <br><strong>- Personnaliser votre expérience</strong> en adaptant le contenu à vos préférences.
+                <br><strong>- Proposer des publicités pertinentes</strong> adaptées à vos centres d’intérêt.
+
+                <br><br><strong>Vos choix en matière de cookies</strong>
+                <br><br>Vous avez le contrôle ! Vous pouvez :
+                <br>✅ <strong>Accepter tous les cookies</strong> pour profiter pleinement de notre site.  
+                <br>⚙️ <strong>Personnaliser vos préférences</strong> et choisir les types de cookies que vous souhaitez autoriser.  
+                <br>❌ <strong>Refuser les cookies non essentiels</strong> si vous préférez limiter leur utilisation.
+
+                <br>💡 Pour plus d’informations, consultez nos mentions légales.
+            </p>
+        </div>
+        <div class="buttons">
+            <button onclick="hideCookieBox()">Tout accepter</button>
+            <button onclick="hideCookieBox()" class="reject">Rejeter les cookies non essentiels</button>
+        </div>
+    </section> -->
+
+    
+    <header>
+        <video autoplay muted loop id="myVideo" class="video_container">
+            <source src="img/header_bg_animated.mp4" type="video/mp4">
+        </video>
+        <nav id="mainNav" class="header_nav">
+            <div class="burger_menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="#" class="header_logo" id="logo"><img src="img/explore_with_us-no_bg.svg" alt="Evasion"></a>
+            <a href="#" class="home_icone" id="home"><img src="img/home_logo.svg" alt="Evasion Accueil" title="Evasion Accueil"></a>
+            <ul class="header_menu">
+                <li class="menu-item" data-target="destination-preview">
+                    <a href="#destination">Destinations</a>
+                </li>
+                <li class="menu-item" data-target="location-preview">
+                    <a href="#services">Locations</a>
+                </li>
+                <li class="menu-item" data-target="blog-preview">
+                    <a href="#blog">Blog</a>
+                </li>
+                <li class="menu-item" data-target="service-preview">
+                    <a href="#services">Services</a>
+                </li>
+                <li class="menu-item" data-target="call-preview">
+                    <a href="#">📞 01 23 45 67 89</a>
+                </li>
+            </ul>
+        </nav>
+        <h1>Bienvenue pour <br><span>L'Evasion</span></h1>
+        <article class="hero_step">
+            <p>Préparez-vous à sortir de votre zone de confort et à embarquer pour des aventures hors du commun !</p>
+            <p>Nous sommes là pour inspirer et guider les aventuriers dans leur quête de destinations uniques et méconnues.</p>
+        </article>
+        <div class="search">
+            <p>Saisissez votre</p>
+            <form action="" method="get">
+                <div class="">
+                    <input type="text" name="name" id="name" placeholder="Ville de départ" required class="search_input"/>
+                </div>
+                <div class="">
+                    <input type="text" name="text" id="text" placeholder="Durée" required class="search_input"/>
+                </div>
+                <div>
+                    <input type="date" name="date" id="date" placeholder="Date de départ" required class="search_input"/>
+                </div>
+                <div>
+                    <input type="submit" value="Rechercher" class="search_button"/>
+                </div>
+            </form>
+        </div>
+        <div class="travel_plan">
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu1">Séjours</button>
+                <div id="menu1" class="menu hidden">
+                    <a href="#">Socotra</a>
+                    <a href="#">Yakoutsk</a>
+                    <a href="#">Danakil</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu2">Vols</button>
+                <div id="menu2" class="menu hidden">
+                    <a href="#">Air Space</a>
+                    <a href="#">Step Air</a>
+                    <a href="#">Air Us</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu3">Croisières</button>
+                <div id="menu3" class="menu hidden">
+                    <a href="#">Mer.Rouge</a>
+                    <a href="#">Danube</a>
+                    <a href="#">Léna</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu4">Hôtels</button>
+                <div id="menu4" class="menu hidden">
+                    <a href="#">Summer Land</a>
+                    <a href="#">Sterkh</a>
+                    <a href="#">Serdo</a>
+                </div>
+            </div>
+
+            <div class="travel_menu">
+                <button class="menuButton" data-target="menu5">Locations</button>
+                <div id="menu5" class="menu hidden">
+                    <a href="#">CarExpress</a>
+                    <a href="#">SpeedRide</a>
+                    <a href="#">EcoMotion</a>
+                </div>
+            </div>
+
+            <a href="#"><button class="plan_button">Planifiez votre voyage</button></a>
+        </div>
+
+        <div data-target="#destination" id="explore_button">
+            <svg viewBox="0 0 152 90" xmlns="http://www.w3.org/2000/svg" width="70" height="40">
+                <path id="path1" d="M 38.126 65.752 C 11.542 47.586, 5.420 42.587, 6.049 39.564 C 7.705 31.603, 14.482 34.255, 44.839 54.746 L 74.480 74.752 L 104.122 54.746 C 134.479 34.255, 141.256 31.603, 142.912 39.564 C 143.541 42.587, 137.419 47.586, 110.835 65.752 C 92.765 78.101, 76.405 88.205, 74.480 88.205 C 72.556 88.205, 56.196 78.101, 38.126 65.752 Z" fill="#131C46"/>
+                <path id="path2" d="M 45.855 37.358 C 25.187 21.455, 20.427 17.080, 20.916 14.433 C 22.204 7.465, 27.472 9.786, 51.074 27.723 L 74.118 45.236 L 97.163 27.723 C 120.765 9.786, 126.033 7.465, 127.321 14.433 C 127.810 17.080, 123.050 21.455, 102.382 37.358 C 88.333 48.167, 75.615 57.012, 74.118 57.012 C 72.622 57.012, 59.903 48.167, 45.855 37.358 Z" fill="#fff"/>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ---------------scroll top button------------------ -->
+        <button id="scrollTopBtn"><img src="img/OnTopButton.svg" alt="On Top"></button>
+
+        <!-- ---------destination section preview on navBar---------------- -->
+        <section id="destination-preview" class="preview-container">
+
+            <a href="socotra.html" class="destination">
+                <div class="destination_figure">
+                    <img src="img/socotra_yemen.jpg" alt="Front Image"/> 
+                </div>
+                <div class="destination_caption">                         
+                    <h4>🏝 Socotra, Yémen</h4>
+                    <p>Voyagez hors du temps</p>
+                </div>
+            </a>
+
+            <a href="#" class="destination">
+                <div class="destination_caption">
+                    <h4>❄️ Yakoutsk, Sibérie</h4>
+                    <p>Osez l’extrême</p>
+                </div>
+                <div class="destination_figure">
+                    <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image"/>
+                </div>
+            </a>
+
+            <a href="socotra.html" class="destination">
+                <div class="destination_figure">
+                    <img src="img/bg_danikil_ethiopia (3).jpg" alt="Front Image"/> 
+                </div>
+                <div class="destination_caption">                         
+                    <h4>🌋 Danakil, Éthiopie</h4>
+                    <p>Entrez dans les entrailles de la Terre</p>
+                </div>
+            </a>
+
+        </section>
+
+        <!-- -----------blog section preview on navbar----------- -->
+        <section id="blog-preview" class="preview-container blog_menu">
+            <a href=""><strong>Article 1 :</strong> Dans les jungles oubliées de Bornéo - Un voyage au cœur de la nature sauvage</a>
+            <a href=""><strong>Article 2 :</strong>  le Transsibérien - Une aventure au rythme des rails.</a>
+            <a href=""><strong>Article 3 :</strong> Histoires autour du feu - Récits d'aventuriers.</a>
+        </section>
+
+        <!-- -------------services section preview on navbar------------- -->
+        <section id="service-preview" class="preview-container service_list">
+            <a href="">Voyages Personnalisés</a>
+            <a href="">Assurance voyage</a>
+            <a href="">Locations</a>
+            <a href="">Assistance 24/7</a>
+            <a href="">Prix Compétitifs</a>
+        </section>
+
+        <!-- -------------location section preview on navbar------------- -->
+        <section id="location-preview" class="preview-container location_list">
+            <a href="">🏨 Hôtels</a>
+            <a href="">🏡 Airbnb</a>
+            <a href="">🎪 Campings</a>
+            <a href="">🏠 Chambres d’hôtes</a>
+            <a href="">⛴️ Bateaux-logements</a>
+            <a href="">🏘️ Logements partagés</a>
+            <a href="">🚗 Location de voiture</a>
+            <a href="">🚲 Vélo et trottinettes</a>
+        </section>
+
+        <!-- ---------call preview on navbar------------- -->
+        <section id="call-preview" class="preview-container">
+            <a href="#contact" class="call">
+                <img src="img/advisor.png" alt="advisor" /> 
+                <img src="img/phonecall.svg" alt="phone" class="phone_bounce">
+                <p><strong>Besoin d’un conseil ? </strong><br>Notre expert est là pour vous aider <br>à chaque étape de votre projet !</p>
+            </a>
+        </section>
+
+
+        <!-- ---------destination section---------------- -->
+        <section id="destination">
+            <h2>Destinations Populaires</h2>
+            <div class="box_destinations">
+                <h4>Choisissez votre prochaine aventure parmi nos destinations exclusives </h4>
+                <figure class="destination_card">
+                    <div class="flip-card perspective" title="Cliquez ici pour avoir tous les détails de cette destination">
+                        <div class="flip-inner">
+                            <div class="flip-front backface-hidden">
+                                <img src="img/socotra_yemen.jpg" alt="Front Image"/>
+                            </div>
+                            <div class="flip-back">
+                                <a href="socotra.html">
+                                    <div id="map" class="maptour"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption class="destination_place">
+                        <a href="socotra.html"  title="Cliquez ici pour avoir tous les détails de cette destination">
+                            <h4>🏝 Socotra, Yémen</h4>
+                            <p>
+                                Voyagez hors du temps sur une île aux allures d’un autre monde. Socotra, là où la nature réinvente la magie.
+                                <br><strong><span><<</span>Météo 🌤  18°</strong> 
+                            </p>
+                        </a>
+                    </figcaption>
+                </figure>
+                <figure class="destination_card">
+                    <figcaption class="destination_place">
+                        <a href="#" title="Cliquez ici pour avoir tous les détails de cette destination">
+                            <h4>❄️ Yakoutsk, Sibérie</h4>
+                            <p>
+                                Osez l’extrême : vivez l’hiver le plus glacé de la planète au cœur d’un décor polaire fascinant.
+                                <br><strong>Météo 🌤  12°<span>>></span></strong> 
+                            </p>
+                        </a>
+                    </figcaption>
+                    <div class="flip-card perspective" title="Cliquez ici pour avoir tous les détails de cette destination">
+                        <div class="flip-inner">
+                            <div class="flip-front backface-hidden">
+                                <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image"/>
+                            </div>
+                            <div class="flip-back">
+                                <a href="#">
+                                    <div id="map2" class="maptour"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                <figure class="destination_card">
+                    <div class="flip-card perspective" title="Cliquez ici pour avoir tous les détails de cette destination">
+                        <div class="flip-inner">
+                            <div class="flip-front backface-hidden">
+                                <img src="img/bg_danikil_ethiopia (1).jpg" alt="Front Image"/>
+                            </div>
+                            <div class="flip-back">
+                                <a href="#">
+                                    <div id="map3" class="maptour"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption class="destination_place">
+                        <a href="#" title="Cliquez ici pour avoir tous les détails de cette destination">
+                            <h4>🌋 Danakil, Éthiopie</h4>
+                            <p>
+                                Entrez dans les entrailles de la Terre : le Danakil vous dévoile ses paysages de feu et de sel, 
+                                entre mystère et beauté brutale.                            
+                                <br><strong><span><<</span>Météo 🌤  22°</strong> 
+                            </p>
+                        </a>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ----------advise section-------------- -->
+        <section id="advice">
+            <div class="practical_advice">
+                <div class="advice_title">
+                    <h4>Conseils<br>Pratiques</h4>
+                </div>
+                <div class="advice_content">         
+                    <p>
+                        Réservez vos vols 2 à 3 mois à l'avance pour bénéficier 
+                        des meilleurs tarifs. 
+                    </p>
+                    <p>
+                        Optez pour des passes de transport public en ville et des 
+                        locations de voiture anticipées pour les zones reculées.
+                    </p>
+                    <p>
+                        Inscrivez-vous aux alertes de prix et restez flexible sur 
+                        vos dates de voyage pour obtenir de meilleures offres.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ----------blog section-------------- -->
+        <section id="blog">
+            <h3>Blog d'aventure</h3>
+            <article class="blog_content">
+                <a><strong>Article 1 :</strong> Dans les jungles oubliées de Bornéo - Un voyage au cœur de la nature sauvage</a>
+                <a><strong>Article 2 :</strong>  le Transsibérien - Une aventure au rythme des rails.</a>
+                <a><strong>Article 3 :</strong> Histoires autour du feu - Récits d'aventuriers.</a>
+            </article>
+        </section>
+
+        <!-- ----------services section--------------- -->
+        <section id="services">
+            <h3>Nos services</h3>
+            <div class="box_services_A">
+                <figure class="service">
+                    <figcaption class="service_content">
+                        <h5>Voyages Personnalisés</h5>
+                        <p>Chaque voyage est conçu selon vos besoins spécifiques.</p>
+                    </figcaption>
+                    <img src="img/service_perso.png" alt="service">
+                </figure>
+                <figure class="service">
+                    <img src="img/service_loca.png" alt="service">
+                    <figcaption class="service_content">
+                        <h5>Assurance voyage</h5>
+                        <p>Voyagez en toute sérénité avec nos solutions d'assurance</p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="box_services_B">
+                <figure class="service">
+                    <img src="img/service_loca.png" alt="service">
+                    <figcaption class="service_content">
+                        <h5>Locations</h5>
+                        <p>Des hébergements et des moyens de transport de qualité pour votre confort.</p>
+                    </figcaption>
+                </figure>
+                <figure class="service">
+                    <figcaption class="service_content">
+                        <h5>Assistance 24/7</h5>
+                        <p>Nous sommes là pour vous, avant, pendant et après votre voyage</p>
+                    </figcaption>
+                    <img src="img/service_assist.png" alt="service">
+                </figure>
+                <figure class="service">
+                    <figcaption class="service_content">
+                        <h5>Prix Compétitifs</h5>
+                        <p>Vivez des aventures uniques sans casser la banque.</p>
+                    </figcaption>
+                    <img src="img/service_price.png" alt="service">
+                </figure>
+            </div>     
+        </section>
+
+        <!-- ------customer reviews section----------- -->
+        <section id="customer_reviews">
+            <h3>Ce que disent nos clients</h3>
+            <div class="box_reviews">
+                <figure class="review">
+                    <img src="img/reviewer_photo (1).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>O. Nord</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Très impatiente d’y retourner, allez visiter l’Amazonie sauvage</p>
+                    </figcaption>
+                </figure>
+                <figure class="review">
+                    <img src="img/reviewer_photo (2).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>H. Paul</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Une expérience authentique et inoubliable.</p>
+                    </figcaption>
+                </figure>
+                <figure class="review">
+                    <img src="img/reviewer_photo (3).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>M. Marie</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Un voyage incroyable dans des lieux que je n'aurais jamais imaginés !</p>
+                    </figcaption>
+                </figure>
+                <figure class="review">
+                    <img src="img/reviewer_photo (4).png" alt="photo costomer review">
+                    <figcaption class="review_content">
+                        <h5>T. Mathieu</h5>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Tokyo était incroyable, ses sources chaudes. Allez essayer !</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!------------------ Contact section --------------->
+        <section id="contact">
+            <h2>Besoin d'un dévis,<br><span>Laissez-nous un message</span></h2>
+            <div class="contact_form">
+                <article class="message">
+                    <label for="message">Votre demande / Décrivez votre projet</label>
+                    <textarea id="message" placeholder="Bonjour !!! Pensez bien à signer votre message (Nom)😃"></textarea>
+                </article>
+
+                <article class="email">
+                    <input type="email" id="email" placeholder="Votre adresse e-mail">
+                    <button type="submit" class="send_button">Envoyer</button>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!---------------------Footer------------------------>
+    <footer>
+        <div class="footer_menu">
+            <article>
+                <h3>Destinations</h3>
+                <ul class="footer_links">
+                    <li><a href="socotra.html">Socotra, Yémen</a></li>
+                    <li><a href="#">Yakoutsk, Sibérie</a></li>
+                    <li><a href="#">Danakil, Éthiopie</a></li>
+                    <li><a href="#">Louxor, Égypte</a></li>
+                    <li><a href="#">Sydney, Australie</a></li>
+                    <li><a href="#">Lamu, Kenya</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Nos services</h3>
+                <ul class="footer_links">
+                    <li><a href="#services">Voyage personnalisé</a></li>
+                    <li><a href="#services">Assurance voyage</a></li>
+                    <li><a href="#services">Location hôtel</a></li>
+                    <li><a href="#services">Assistance 24/7</a></li>
+                    <li><a href="#services">Prix compétitifs</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <figure>
+                    <h3>Contacts</h3>
+                    <ul class="footer_links">
+                        <li><a href="#contact">📞 (+33) 01 23 45 67 89</a></li>
+                        <li><a href="#contact">✉️ evasion@voyage.fr</a></li>
+                        <li><a href="#contact">🛖 4 evasion, 58000</a></li>
+                    </ul>
+                </figure>
+
+                <figure>
+                    <h3>Nos partenaires</h3>
+                    <ul class="footer_links">
+                        <li><a href="#">Evasion Airlines</a></li>
+                        <li><a href="#">Evasion Touristique</a></li>
+                    </ul>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Langues</h3>
+                <ul class="footer_links">
+                    <li><a href="index.html">Français</a></li>
+                    <li><a href="en.html">English</a></li>
+                    <li><a href="jpn.html">日本語</a></li>
+                </ul>
+            </article>
+            <article class="about_us">
+                <h2>À propos de nous</h2>
+                <p>
+                    Depuis des années, nous rêvons d'inspirer des voyageurs à dépasser les frontières classiques des guides touristiques. 
+                    Notre objectif est simple : révéler la beauté cachée du monde et célébrer la diversité de la planète.<br><br> 
+                    Nous sommes une équipe de passionnés de voyage, d'aventuriers dans l'âme, qui avons eu la chance d'explorer des 
+                    contrées reculées, des jungles profondes aux montagnes isolées. Chaque récit et suggestion de notre site est le 
+                    fruit de notre expérience et de notre amour pour le voyage authentique.
+                </p>
+            </article>
+        </div>
+
+        <div class="footer_logo">
+            <a href="#"><img src="img/explore_with_us-no_bg.svg" alt="Footer logo" class="travel_logo"></a>
+            <article>
+                <h3>Moyens de paiements acceptés</h3>
+                <div class="footer_logo_links">
+                    <a href="https://www.paypal.com/fr/home"><img title="Paypal" src="img/logo_paypal.svg" alt="Footer logo"></a>
+                    <a href="https://www.mastercard.fr/fr-fr.html"><img title="Mastercard" src="img/logo_mastercard.svg" alt="Footer logo"></a>
+                    <a href="https://www.visa.fr/"><img title="Visa" src="img/logo_visa.svg" alt="Footer logo"></a>
+                </div>
+            </article>
+
+            <article>
+                <h3>Restez connectés</h3>
+                <div class="footer_logo_links">
+                    <a href="https://www.whatsapp.com/?lang=fr_FR"><img title="Whatsapp" src="img/logo_whatsapp.svg" alt="Footer logo"></a>
+                    <a href="https://x.com/Accueil"><img title="TwitterX" src="img/logo_twitterx.svg" alt="Footer logo"></a>
+                    <a href="https://www.facebook.com/"><img title="Facebook" src="img/logo_facebook.svg" alt="Footer logo"></a>
+                    <a href="https://www.instagram.com/"><img title="Instagram" src="img/logo_instagram.svg" alt="Footer logo"></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="rights">
+            <a href="#">Mentions légales &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">Données personneles &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">CGV &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">©évasion_voyage_by_C&S</a>
+        </div>
+    </footer>
+    <script src="js/cookies.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>    
+    <script src="js/navscroll.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/mapdisplay.js"></script>
+    <script src="js/navpreview.js"></script>
+    <script src="js/onTopButton.js"></script>
+    <script src="js/expButton.js"></script>
+</body>
+</html>

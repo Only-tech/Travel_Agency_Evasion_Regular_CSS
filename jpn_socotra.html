@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="jpn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エヴァジオン・ヴォヤージュ</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/socotra.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+
+    <header>
+        <video autoplay muted loop id="myVideo" class="video_container">
+            <source src="../medias/bg_images/bg-animated-yemen.mp4" type="video/mp4">
+        </video>
+        <nav id="mainNav" class="header_nav">
+            <div class="burger_menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="jpn.html" class="header_logo" id="logo"><img src="img/explore_with_us-no_bg.svg" alt=""></a>
+            <a href="jpn.html" class="home_icone" id="home"><img src="img/home_logo.svg" alt="Evasion Accueil"
+                    title="Evasion Accueil"></a>
+            <ul class="header_menu">
+                <li class="menu-item active" data-target="destination-preview">
+                    <a href="jpn.html#destination">目的地</a>
+                </li>
+                <li class="menu-item" data-target="location-preview">
+                    <a href="jpn.html#services">ロケーション</a>
+                </li>
+                <li class="menu-item" data-target="blog-preview">
+                    <a href="jpn.html#blog">ブログ</a>
+                </li>
+                <li class="menu-item" data-target="service-preview">
+                    <a href="jpn.html#services">サ\u30fcビス</a>
+                </li>
+                <li class="menu-item" data-target="call-preview">
+                    <a href="#">📞 01 23 45 67 89</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <button id="scrollTopBtn"><img src="img/OnTopButton.svg" alt="On Top"></button>
+
+    <section id="destination-preview" class="preview-container">
+
+        <a href="jpn_socotra.html" class="destination">
+            <div class="destination_figure">
+                <img src="img/socotra_yemen.jpg" alt="Front Image"/>
+            </div>
+            <div class="destination_caption">
+                <h4>🏝 ソコトラ、イエメン</h4>
+                <p>時を超えた旅</p>
+            </div>
+        </a>
+
+        <a href="#" class="destination">
+            <div class="destination_caption">
+                <h4>❄️ ヤクーツク、シベリア</h4>
+                <p>極限に挑戦</p>
+            </div>
+            <div class="destination_figure">
+                <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image" />
+            </div>
+        </a>
+
+        <a href="jpn_socotra.html" class="destination">
+            <div class="destination_figure">
+                <img src="img/bg_danikil_ethiopia (3).jpg" alt="Front Image" />
+            </div>
+            <div class="destination_caption">
+                <h4>🌋 ダナキル、エチオピア</h4>
+                <p>地球の奥深くへ</p>
+            </div>
+        </a>
+
+    </section>
+
+    <section id="blog-preview" class="preview-container blog_menu">
+        <a href=""><strong>記事1：</strong> ボルネオの忘れられたジャングルで - 野生の自然の中心への旅</a>
+        <a href=""><strong>記事2：</strong> シベリア鉄道 - レールのリズムに乗った冒険。</a>
+        <a href=""><strong>記事3：</strong> 炉端の物語 - 冒険家たちの物語。</a>
+    </section>
+
+    <section id="service-preview" class="preview-container service_list">
+        <a href="">オ\u30fcダ\u30fcメイド旅行</a>
+        <a href="">旅行保険</a>
+        <a href="">レンタル</a>
+        <a href="">24時間年中無休のサポ\u30fcト</a>
+        <a href="">競争力のある価格</a>
+    </section>
+
+    <section id="location-preview" class="preview-container location_list">
+        <a href="">🏨 ホテル</a>
+        <a href="">🏡 Airbnb</a>
+        <a href="">🎪 キャンプ場</a>
+        <a href="">🏠 ゲストハウス</a>
+        <a href="">⛴️ ハウスボ\u30fcト</a>
+        <a href="">🏘️ シェア宿泊</a>
+        <a href="">🚗 レンタカ\u30fc</a>
+        <a href="">🚲 自転車とスク\u30fcタ\u30fc</a>
+    </section>
+
+    <section id="call-preview" class="preview-container">
+        <a href="#contact" class="call">
+            <img src="img/advisor.png" alt="advisor" class="advisors" />
+            <img src="img/phonecall.svg" alt="phone" class="phone_bounce">
+            <p><strong>アドバイスが必要ですか？</strong><br>私たちの専門家があなたのプロジェクトの<br>あらゆる段階でお手伝いします！</p>
+        </a>
+    </section>
+
+
+    <section id="socotra_tour">
+        <div class="socotra_content">
+            <h3>ソコトラを発見しに来てください</h3>
+            <p class="description">
+                イエメン沖のインド洋に浮かぶ孤立した宝石、ソコトラは、その風景が別の惑星に属しているように見える乾燥した山岳の島です。
+                ユネスコの世界遺産に登録されているこの島は、世界でユニ\u30fcクな生物多様性の宝庫です。
+                その植物相の3分の1以上は、世界のどこにも見られません。
+                <br><br>
+                ソコトラリュウケツジュの奇妙なシルエットは、傘の形をした頂上で、高い台地を支配しており、
+                カラ\u30fcンシヤやアルヘルなどの手付かずのビーチは、白い砂浜、青い海、険しい砂丘の印象的なコントラストを提供しています。
+
+                <br><br>
+                島の中心部にあるディクサム台地は、極端な条件に適応した固有種が生息する深い渓谷の息を呑むようなパノラマを公開しています。
+                ホクのような洞窟には、島を古代文明に結びつける商業の過去の証である巨大な鍾乳石や古代の碑文が含まれています。
+                アイハフトのような湿った谷では、まれな鳥、ヤシの木、岩に囲まれた淡水プ\u30fcルの形で生命が生まれます。
+
+                <br><br>
+                マスツ\u30fcリズムの影響をほとんど受けていないソコトラは、ほとんど時代を超越した自然の聖域であり続けています。
+                それは、すべての場所が世界の起源と生命の自律性を呼び起こす、生のパワフルな目的地です。
+            </p>
+
+            <article class="tourist_spots">
+                <h4>⚓ 観光スポ\u30fcト</h4>
+                <ul>
+                    <li><strong>👉 スポット 1：</strong> ハディボ（ソコトラ）に到着 - カイロまたはサラーラ（オマ\u30fcン）からのフライト。</li>
+                    <li><strong>👉 スポット 2：</strong> ラスシュアブビーチ - カラ\u30fcンシヤからのボ\u30fcト旅行。</li>
+                    <li><strong>👉 スポット 3：</strong> ディクサム山脈 - 4x4でアクセス可能なハイキング。</li>
+                    <li><strong>👉 スポット 4：</strong> ワディアイヘフト - オフロード車での訪問。</li>
+                    <li><strong>👉 スポット 5：</strong> 自由な探索またはハディボへの帰還。</li>
+                </ul>
+            </article>
+
+            <article class="wheather_info">
+                <p>
+                    平均気温：☀️ <span>25〜30°C</span>
+                    <br>降水量が少ない熱帯気候は、遠足や水泳に最適です。
+                </p>
+            </article>
+
+            <article class="price_info">
+                <p>💰 4,950 €から、信じられないほどの瞬間を体験してください。</p>
+            </article>
+            <a href=""><button class="booking_button">今すぐ予約</button></a>
+        </div>
+
+        <div class="carousel_wheather_advice">
+            <article>
+                <div class="carousel-images">
+                    <img src="img/carou_images/yemen_1.jpg" class="active" alt="Socotra">
+                    <img src="img/carou_images/yemen_2.jpg" alt="Socotra">
+                    <img src="img/carou_images/yemen_3.jpg" alt="Socotra">
+                    <img src="img/carou_images/yemen_4.jpg" alt="Socotra">
+                </div>
+
+                <div class="wheather_widget" id="ww_5fd73f78f4a" v='1.3' loc='id'
+                    a='{"t":"responsive","lang":"fr","sl_lpl":1,"ids":["wl4331"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#D32F2F","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FFFFFF","cl_odd":"#0000000a"}'>
+                    Plus de prévisions: <a href="https://oneweather.org/fr/paris/25_days/" id="ww_5fd73f78f4a_u"
+                        target="_blank">25 jours previsions meteo</a>
+                </div>
+            </article>
+
+
+            <div class="tour_practical_advice">
+                <h4>🛠️ 実用的なアドバイス</h4>
+                <p>
+                    山を探索するためのハイキングシュ\u30fcズと、信じられないほどの海底を鑑賞するためのマスクまたはシュノ\u30fcケルを持参してください。
+                    <br><br>旅行前の推奨事項は、以下の<a href="#recommandation" class="link_to_advising">地図ツア\u30fc👇</a>で確認してください
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="Map_Tour">
+            <div id="nav-items"></div>
+
+            <div id="map-container">
+                <div id="map"></div>
+
+                <div id="info-panel"></div>
+            </div>
+
+            <div id="legend"></div>
+        </div>
+    </section>
+
+
+    <section id="recommandation">
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/passport.svg" alt="Passeport">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validé">
+                <p>イエメンに入国するには有効なパスポ\u30fcトが必要です。
+                    <br>到着時にビザは発行されません。事前のリクエストが必要です。</p>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/vaccine.svg" alt="Vaccins">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validé">
+                <h4>推奨：</h4>
+                <p>
+                    A型肝炎
+                    <br>腸チフス
+                    <br>破傷風
+                    <br>狂犬病
+                </p>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/currency.svg" alt="Devise">
+                <div class="separator"></div>
+
+                <section class="currency-conversion">
+                    <h4>💱 為替レ\u30fcト</h4>
+                    <label for="userCurrency">あなたの通貨：</label>
+                    <select id="userCurrency">
+                        <option value="EUR">ユ\u30fcロ (EUR)</option>
+                        <option value="USD">ドル (USD)</option>
+                        <option value="GBP">ポンド (GBP)</option>
+                        <option value="CAD">カナダドル (CAD)</option>
+                        <option value="JPY">円 (JPY)</option>
+                    </select>
+
+                    <label for="destinationCurrency">目的地の通貨：</label>
+                    <select id="destinationCurrency">
+                        <option value="JPY">日本 (JPY)</option>
+                        <option value="USD">アメリカ合衆国 (USD)</option>
+                        <option value="MAD">モロッコ (MAD)</option>
+                        <option value="THB">タイ (THB)</option>
+                        <option value="IDR">インドネシア (IDR)</option>
+                    </select>
+
+                    <div id="conversionResult">レ\u30fcトを読み込んでいます...</div>
+                </section>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/phone.svg" alt="Téléphone">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validé">
+                <p>携帯電話の電波は限られています。
+                    <br>ハディブの外ではインタ\u30fcネット接続が不安定または存在しません。外部バッテリ\u30fcと現地のSIMカ\u30fcドを用意してください。</p>
+            </div>
+            <div class="separator"></div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer_menu">
+            <article>
+                <h3>目的地</h3>
+                <ul class="footer_links">
+                    <li><a href="jpn_socotra.html">ソコトラ、イエメン</a></li>
+                    <li><a href="#">ヤク\u30fcツク、シベリア</a></li>
+                    <li><a href="#">ダナキル、エチオピア</a></li>
+                    <li><a href="#">ルクソ\u30fcル、エジプト</a></li>
+                    <li><a href="#">シドニ\u30fc、オ\u30fcストラリア</a></li>
+                    <li><a href="#">ラム、ケニア</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>私たちのサ\u30fcビス</h3>
+                <ul class="footer_links">
+                    <li><a href="#services">オ\u30fcダ\u30fcメイド旅行</a></li>
+                    <li><a href="#services">旅行保険</a></li>
+                    <li><a href="#services">ホテルレンタル</a></li>
+                    <li><a href="#services">24時間年中無休のサポ\u30fcト</a></li>
+                    <li><a href="#services">競争力のある価格</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <figure>
+                    <h3>連絡先</h3>
+                    <ul class="footer_links">
+                        <li><a href="#contact">📞 (+81) 01 23 45 67 89</a></li>
+                        <li><a href="#contact">✉️ evasion@voyage.jpn</a></li>
+                        <li><a href="#contact">🛖 4 evasion 番地, 58000</a></li>
+                    </ul>
+                </figure>
+
+                <figure>
+                    <h3>パ\u30fcトナ\u30fc</h3>
+                    <ul class="footer_links">
+                        <li><a href="#">エヴァジオン・エアラインズ</a></li>
+                        <li><a href="#">>エヴァジオン・ツーリスティック</a></li>
+                    </ul>
+                </figure>
+            </article>
+
+            <article>
+                <h3>言語</h3>
+                <ul class="footer_links">
+                    <li><a href="jpn.html">日本語</a></li>
+                    <li><a href="index.html">Français</a></li>
+                    <li><a href="en.html">English</a></li>
+                </ul>
+                </article>
+        </div>
+
+        <div class="rights">
+            <a href="#">法的事項 &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">個人デ\u30fcタ &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">利用規約 &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">©évasion_voyage_by_C&S</a>
+        </div>
+    </footer>
+
+    <script async src="https://app3.weatherwidget.org/js/?id=ww_5fd73f78f4a"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>    
+    <script src="js/navscroll.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="./js/maptour.js"></script>
+    <script src="./js/carroussel.js"></script>
+    <script src="./js/currency.js"></script>
+    <script src="./js/navpreview.js"></script>
+    <script src="./js/onTopButton.js"></script>
+    <script src="./js/expButton.js"></script>
+</body>
+</html>

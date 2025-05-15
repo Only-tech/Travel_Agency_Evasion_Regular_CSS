@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evasion Voyage</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/socotra.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+ 
+    <header>
+        <video autoplay muted loop id="myVideo" class="video_container">
+            <source src="../medias/bg_images/bg-animated-yemen.mp4" type="video/mp4">
+        </video>
+        <nav id="mainNav" class="header_nav">
+            <div class="burger_menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="index.html" class="header_logo" id="logo"><img src="img/explore_with_us-no_bg.svg" alt=""></a>
+            <a href="index.html" class="home_icone" id="home"><img src="img/home_logo.svg" alt="Evasion Accueil" title="Evasion Accueil"></a>
+            <ul class="header_menu">
+                <li class="menu-item active" data-target="destination-preview">
+                    <a href="index.html#destination">Destinations</a>
+                </li>
+                <li class="menu-item" data-target="location-preview">
+                    <a href="index.html#services">Locations</a>
+                </li>
+                <li class="menu-item" data-target="blog-preview">
+                    <a href="index.html#blog">Blog</a>
+                </li>
+                <li class="menu-item" data-target="service-preview">
+                    <a href="index.html#services">Services</a>
+                </li>
+                <li class="menu-item" data-target="call-preview">
+                    <a href="#">📞 01 23 45 67 89</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+<!-- ---------------scroll top button------------------ -->
+    <button id="scrollTopBtn"><img src="img/OnTopButton.svg" alt="On Top"></button>
+    
+<!-- ---------destination section preview on navBar---------------- -->
+    <section id="destination-preview" class="preview-container">
+
+        <a href="socotra.html" class="destination">
+            <div class="destination_figure">
+                <img src="img/socotra_yemen.jpg" alt="Front Image"/>
+            </div>
+            <div class="destination_caption">                         
+                <h4>🏝 Socotra, Yémen</h4>
+                <p>Voyagez hors du temps</p>
+            </div>
+        </a>
+
+        <a href="#" class="destination">
+            <div class="destination_caption">
+                <h4>❄️ Yakoutsk, Sibérie</h4>
+                <p>Osez l’extrême</p>
+            </div>
+            <div class="destination_figure">
+                <img src="img/yakoutsk_bg_normal.jpg" alt="Front Image"/>
+            </div>
+        </a>
+
+        <a href="socotra.html" class="destination">
+            <div class="destination_figure">
+                <img src="img/bg_danikil_ethiopia (3).jpg" alt="Front Image"/> 
+            </div>
+            <div class="destination_caption">                         
+                <h4>🌋 Danakil, Éthiopie</h4>
+                <p>Entrez dans les entrailles de la Terre</p>
+            </div>
+        </a>
+
+    </section>
+
+<!-- -----------blog section preview on navbar----------- -->
+    <section id="blog-preview" class="preview-container blog_menu">
+        <a href=""><strong>Article 1 :</strong> Dans les jungles oubliées de Bornéo - Un voyage au cœur de la nature sauvage</a>
+        <a href=""><strong>Article 2 :</strong>  le Transsibérien - Une aventure au rythme des rails.</a>
+        <a href=""><strong>Article 3 :</strong> Histoires autour du feu - Récits d'aventuriers.</a>
+    </section>
+
+<!-- -------------services section preview on navbar------------- -->
+    <section id="service-preview" class="preview-container service_list">
+        <a href="">Voyages Personnalisés</a>
+        <a href="">Assurance voyage</a>
+        <a href="">Locations</a>
+        <a href="">Assistance 24/7</a>
+        <a href="">Prix Compétitifs</a>
+    </section>
+
+<!-- -------------location section preview on navbar------------- -->
+    <section id="location-preview" class="preview-container location_list">
+        <a href="">🏨 Hôtels</a>
+        <a href="">🏡 Airbnb</a>
+        <a href="">🎪 Campings</a>
+        <a href="">🏠 Chambres d’hôtes</a>
+        <a href="">⛴️ Bateaux-logements</a>
+        <a href="">🏘️ Logements partagés</a>
+        <a href="">🚗 Location de voiture</a>
+        <a href="">🚲 Vélo et trottinettes</a>
+    </section>
+
+<!-- ---------call preview on navbar------------- -->
+    <section id="call-preview" class="preview-container">
+        <a href="#contact" class="call">
+            <img src="img/advisor.png" alt="advisor" class="advisors"/> 
+            <img src="img/phonecall.svg" alt="phone" class="phone_bounce">
+            <p><strong>Besoin d’un conseil ? </strong><br>Notre expert est là pour vous aider <br>à chaque étape de votre projet !</p>
+        </a>
+    </section>
+
+
+<!-- --------------------socotra content------------------------------ -->
+    <section id="socotra_tour">
+        <div class="socotra_content">
+            <h3>Venez découvrir Socotra</h3>
+            <p class="description">
+                Socotra, joyau isolé de l’océan Indien au large du Yémen, est une île aride et montagneuse dont les paysages 
+                semblent appartenir à une autre planète. Classée au patrimoine mondial de l’UNESCO, elle abrite une biodiversité 
+                unique au monde : plus d’un tiers de sa flore ne se retrouve nulle part ailleurs. 
+                <br><br>Les silhouettes étranges des dragoniers de Socotra, aux cimes en forme de parapluie, dominent les hauts 
+                plateaux, tandis que les plages immaculées comme celles de Qalansiyah et d’Arher offrent un contraste saisissant 
+                entre sable blanc, mer turquoise et dunes abruptes.
+
+                <br><br>Au cœur de l’île, le plateau de Dixam expose des panoramas vertigineux sur des canyons profonds, habités 
+                par des espèces endémiques adaptées à des conditions extrêmes. 
+                <br>Les grottes comme Hoq renferment des stalactites massives et des inscriptions anciennes, témoins d’un passé 
+                commerçant reliant l’île aux civilisations antiques. 
+                <br>Dans les vallées humides comme Ayhaft, la vie surgit sous forme d’oiseaux rares, de palmiers et de bassins d’eau douce nichés dans la roche.
+                    
+                <br><br>Peu touchée par le tourisme de masse, Socotra demeure un sanctuaire naturel préservé, presque hors du temps. C’est une destination brute, puissante, où chaque lieu évoque l’origine du monde et l’autonomie du vivant.
+            </p>
+
+            <article class="tourist_spots">
+                <h4>⚓ Escales Touristiques</h4>
+                <ul>
+                    <li><strong>👉 Escale 1 : </strong> Arrivée à Hadibo (Socotra) – Vol depuis Le Caire ou Salalah (Oman).</li>
+                    <li><strong>👉 Escale 2 : </strong> Plage de Ras Shu'ab – Excursion en bateau depuis Qalansiyah.</li>
+                    <li><strong>👉 Escale 3 : </strong> Montagnes de Dixham – Randonnée accessible en 4x4.</li>
+                    <li><strong>👉 Escale 4 : </strong> Wadi Ayheft – Visite en véhicule tout-terrain.</li>
+                    <li><strong>👉 Escale 5 : </strong> Exploration libre ou retour vers Hadibo.</li>
+                </ul>
+            </article>
+
+            <article class="wheather_info">
+                <p>
+                    Température moyenne : ☀️ <span>25-30°C</span>
+                    <br>Climat tropical avec peu de précipitations, idéal pour les excursions et baignades.
+                </p>
+            </article>
+
+            <article class="price_info">
+                <p>À partir de <span>💰 4 950 €</span>, partez vivre des moments incroyables.</p>
+            </article>
+            <a href=""><button class="booking_button">Réserver maintenant</button></a>
+        </div>
+
+        <div class="carousel_wheather_advice">
+            <article>
+                <div class="carousel-images">
+                    <img src="img/carou_images/yemen_1.jpg" class="active" alt="Socotra">
+                    <img src="img/carou_images/yemen_2.jpg" alt="Socotra">
+                    <img src="img/carou_images/yemen_3.jpg" alt="Socotra">
+                    <img src="img/carou_images/yemen_4.jpg" alt="Socotra">
+                </div>
+                
+                <div class="wheather_widget"  id="ww_5fd73f78f4a" v='1.3' loc='id' a='{"t":"responsive","lang":"fr","sl_lpl":1,"ids":["wl4331"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#D32F2F","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FFFFFF","cl_odd":"#0000000a"}'>
+                    Plus de prévisions: <a href="https://oneweather.org/fr/paris/25_days/" id="ww_5fd73f78f4a_u" target="_blank">25 jours previsions meteo</a>
+                </div>
+            </article>
+
+
+            <div class="tour_practical_advice">
+                <h4>🛠️ Conseil pratique</h4>
+                <p>
+                    Prévoyez des chaussures de randonnée pour explorer les montagnes et un masque ou tuba pour admirer les fonds marins incroyables.
+                    <br><br>Retrouvez les recommandations pré-voyage après le 
+                    <a href="#recommandation" class="link_to_advising">Map Tour ci-dessous 👇</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="Map_Tour">
+            <!-- Bloc navigation -->
+            <div id="nav-items"></div>
+
+            <!-- Conteneur carte + panneau -->
+            <div id="map-container">
+                <!-- Carte -->
+                <div id="map"></div>
+                
+                <!-- Panneau d'information -->
+                <div id="info-panel"></div>
+            </div>
+
+            <!-- Légende -->
+            <div id="legend"></div>
+        </div>
+    </section>
+
+
+    <section id="recommandation">
+        <!-- Passeport -->
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/passport.svg" alt="Passeport">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validé">
+                <p>Un passeport en cours de validité est obligatoire pour entrer au Yémen. <br>Aucun visa délivré à l’arrivée. Demande préalable nécessaire.</p>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <!-- Vaccins -->
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/vaccine.svg" alt="Vaccins">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validé">
+                <h4>Recommandé :</h4>
+                <p>
+                    Hépatite A
+                    <br>Fièvre typhoïde
+                    <br>Tétanos
+                    <br>Rage
+                </p>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <!-- Devise -->
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/currency.svg" alt="Devise">
+                <div class="separator"></div>
+
+                <section class="currency-conversion">
+                    <h4>💱 Taux de change</h4>
+                    <label for="userCurrency">Votre monnaie :</label>
+                    <select id="userCurrency">
+                        <option value="EUR">Euro (EUR)</option>
+                        <option value="USD">Dollar (USD)</option>
+                        <option value="GBP">Livre (GBP)</option>
+                        <option value="CAD">Dollar canadien (CAD)</option>
+                        <option value="JPY">Yen (JPY)</option>
+                    </select>
+
+                    <label for="destinationCurrency">Monnaie destination :</label>
+                    <select id="destinationCurrency">
+                        <option value="JPY">Japon (JPY)</option>
+                        <option value="USD">États-Unis (USD)</option>
+                        <option value="MAD">Maroc (MAD)</option>
+                        <option value="THB">Thaïlande (THB)</option>
+                        <option value="IDR">Indonésie (IDR)</option>
+                    </select>
+
+                    <div id="conversionResult">Chargement du taux...</div>
+                </section>
+            </div>
+            <div class="separator"></div>
+        </div>
+
+        <!-- Téléphone -->
+        <div class="recommendation-item">
+            <div>
+                <img src="./medias/logos/phone.svg" alt="Téléphone">
+                <div class="separator"></div>
+                <img src="./medias/logos/green_checkmark.webp" alt="Validé">
+                <p>Réseau mobile limité. <br>Connexion internet instable voire inexistante hors de Hadibu. Prévoir batteries externes et cartes SIM locales.</p>
+            </div>
+            <div class="separator"></div>
+        </div>
+    </section>
+
+
+    <!---------------------Footer------------------------>
+    <footer>
+        <div class="footer_menu">
+            <article>
+                <h3>Destinations</h3>
+                <ul class="footer_links">
+                    <li><a href="socotra.html">Socotra, Yémen</a></li>
+                    <li><a href="#">Yakoutsk, Sibérie</a></li>
+                    <li><a href="#">Danakil, Éthiopie</a></li>
+                    <li><a href="#">Louxor, Égypte</a></li>
+                    <li><a href="#">Sydney, Australie</a></li>
+                    <li><a href="#">Lamu, Kenya</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Nos services</h3>
+                <ul class="footer_links">
+                    <li><a href="index.html#services">Voyage personnalisé</a></li>
+                    <li><a href="index.html#services">Assurance voyage</a></li>
+                    <li><a href="index.html#services">Location hôtel</a></li>
+                    <li><a href="index.html#services">Assistance 24/7</a></li>
+                    <li><a href="index.html#services">Prix compétitifs</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <figure>
+                    <h3>Contacts</h3>
+                    <ul class="footer_links">
+                        <li><a href="#contact">📞 (+33) 01 23 45 67 89</a></li>
+                        <li><a href="#contact">✉️ evasion@voyage.fr</a></li>
+                        <li><a href="#contact">🛖 4 evasion, 58000</a></li>
+                    </ul>
+                </figure>
+
+                <figure>
+                    <h3>Nos partenaires</h3>
+                    <ul class="footer_links">
+                        <li><a href="#">Evasion Airlines</a></li>
+                        <li><a href="#">Evasion Touristique</a></li>
+                    </ul>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Langues</h3>
+                <ul class="footer_links">
+                    <li><a href="index.html">Français</a></li>
+                    <li><a href="en.html">English</a></li>
+                    <li><a href="jpn.html">日本語</a></li>
+                </ul>
+            </article>
+            <article class="about_us">
+                <h2>À propos de nous</h2>
+                <p>
+                    Depuis des années, nous rêvons d'inspirer des voyageurs à dépasser les frontières classiques des guides touristiques. 
+                    Notre objectif est simple : révéler la beauté cachée du monde et célébrer la diversité de la planète.<br><br> 
+                    Nous sommes une équipe de passionnés de voyage, d'aventuriers dans l'âme, qui avons eu la chance d'explorer des 
+                    contrées reculées, des jungles profondes aux montagnes isolées. Chaque récit et suggestion de notre site est le 
+                    fruit de notre expérience et de notre amour pour le voyage authentique.
+                </p>
+            </article>
+        </div>
+
+        <div class="footer_logo">
+            <a href="index.html"><img src="img/explore_with_us-no_bg.svg" alt="Footer logo" class="travel_logo"></a>
+            <article>
+                <h3>Moyens de paiements acceptés</h3>
+                <div class="footer_logo_links">
+                    <a href="https://www.paypal.com/fr/home"><img title="Paypal" src="img/logo_paypal.svg" alt="Footer logo"></a>
+                    <a href="https://www.mastercard.fr/fr-fr.html"><img title="Mastercard" src="img/logo_mastercard.svg" alt="Footer logo"></a>
+                    <a href="https://www.visa.fr/"><img title="Visa" src="img/logo_visa.svg" alt="Footer logo"></a>
+                </div>
+            </article>
+
+            <article>
+                <h3>Restez connectés</h3>
+                <div class="footer_logo_links">
+                    <a href="https://www.whatsapp.com/?lang=fr_FR"><img title="Whatsapp" src="img/logo_whatsapp.svg" alt="Footer logo"></a>
+                    <a href="https://x.com/Accueil"><img title="TwitterX" src="img/logo_twitterx.svg" alt="Footer logo"></a>
+                    <a href="https://www.facebook.com/"><img title="Facebook" src="img/logo_facebook.svg" alt="Footer logo"></a>
+                    <a href="https://www.instagram.com/"><img title="Instagram" src="img/logo_instagram.svg" alt="Footer logo"></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="rights">
+            <a href="#">Mentions légales &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">Données personneles &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">CGV &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#">©évasion_voyage_by_C&S</a>
+        </div>
+    </footer>
+
+    <script async src="https://app3.weatherwidget.org/js/?id=ww_5fd73f78f4a"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>    
+    <script src="js/navscroll.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="./js/maptour.js"></script>
+    <script src="./js/carroussel.js"></script>
+    <script src="./js/currency.js"></script>
+    <script src="./js/navpreview.js"></script>
+    <script src="./js/onTopButton.js"></script>
+    <script src="./js/expButton.js"></script>
+</body>
+</html>
