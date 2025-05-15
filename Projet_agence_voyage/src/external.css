@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  #map {
+    flex: 1;
+  }
+
+  #nav-items {
+    display: flex;
+    gap: 2rem;
+    padding: 0.5rem;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  #nav-items button {
+    padding: 0.5rem 0.5rem;
+    background: #6582d3;
+    color: white;
+    border: solid 2px black;
+    cursor: pointer;
+    border-radius: 50%;
+    flex-shrink: 0;
+    height: 5em;
+    width: 5em;
+  }
+
+  #nav-items button:hover {
+    background: #6ace72;
+  }
+
+  #legend {
+    padding: 0.5rem 1rem;
+    background: #e8e8e8;
+    border-top: 1px solid #ccc;
+  }
+
+  .legend-item {
+    margin-bottom: 0.5rem;
+  }
+
+  #info-panel h2 {
+  margin: 0 0 0.5rem 0;
+  }
+
+  #info-panel p {
+  margin: 0.5rem 0 0 0;
+  }
+
+  #nav-items .tour-button {
+  background: #2ECC40;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #27ae60;
+  }
+
+  #nav-items .tour-button:hover {
+  background: #27ae60;
+  }

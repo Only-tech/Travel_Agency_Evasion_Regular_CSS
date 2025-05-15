@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence de voyage</title>
+    <link rel="stylesheet" href="footer_edit/css/fonts.css">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body class="overflow-x-hidden w-[100vw]">
+    <header class="flex flex-col justify-center text-center md:gap-5 relative md:pb-[25em] pb-5 font-[montserrat-regular] text-[1rem]">
+        <div class="absolute inset-0 -z-10 overflow-hidden contrast-100 saturate-50">
+            <video autoplay muted loop id="myVideo" class="object-center object-cover w-full h-full">
+                <source src="./medias/bg_images/header_bg_animated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <nav id="mainNav" class="flex w-[100vw] h-20 justify-between  px-15 text-[#131C46] text-center fixed top-0 z-50 transition-colors duration-300 bg-transparent hover:bg-[#D9D9D9] cursor-pointer">
+            <a href="./index.html" class="header_logo self-center "><img src="footer_edit/img/explore_with_us-no_bg.svg" alt="" class="w-40"></a>
+            <ul class="flex gap-20 mr-25 self-center font-['montserrat-semibold'] text-xl">
+                <li><a href="#destination">Destinations</a></li>
+                <li><a href="#services">Locations</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#">📞 01 23 45 67 89</a></li>
+            </ul>
+        </nav>    
+        <h1 class="text-[2.6em] text-white mt-26 font-[montserrat-bold]">Bienvenue pour <br><span class="text-[1.6em] text-blue-950 underline decoration-1 decoration-blue-950/75 underline-offset-16">L'Evasion </span></h1>
+        <article class="flex flex-col bg-black opacity-65 text-[1rem] mt-10 mb-16 text-white w-fit self-center shadow-black font-[poppins-regular] rounded-md">
+            <p class="opacity-100 md:w-[45ch] w-[35ch] p-5">Préparez-vous à sortir de votre zone de confort et à embarquer pour des aventures hors du commun !</p>
+            <p class="opacity-100 md:w-[45ch] w-[35ch] p-5">Nous sommes là pour inspirer et guider les aventuriers dans leur quête de destinations uniques et méconnues. </p>
+        </article>
+        <div class="flex self-center items-center bg-black opacity-65 text-white w-fit p-5 gap-5 mb-16 rounded-md ">
+            <p class="mr-10">Saisissez votre</p>
+            <form action="" method="get" class="flex flex-wrap gap-5 md:flex-nowrap">
+                <div class="">
+                  <input type="text" name="name" id="name" placeholder="Ville de départ" required />
+                </div>
+                <div class="">
+                  <input type="text" name="text" id="text" placeholder="Durée" required />
+                </div>
+                <div class="">
+                    <input type="date" name="date" id="date" placeholder="Date de départ" required />
+                </div>
+                <div class="inline-flex justify-center rounded-md opacity-100 bg-white px-4 py-2 ml-0 text-blue-950 font-bold  cursor-pointer">
+                  <input type="submit" value="Rechercher" />
+                </div>
+              </form>
+        </div>
+        <div class="rp:flex justify-center self-center w-[75vw] hidden">
+            <div class="flex justify-center items-center bg-black opacity-65 z-30 rounded-md">
+                <div class="relative inline-block text-left">
+                <!-- Le bouton -->
+                    <button type="button" class="menuButton inline-flex justify-center min-w-[25ch] px-4 py-2 text-sm font-medium text-white border-solid border-black border-x-2 hover:bg-blue-950" data-target="menu1">
+                        Séjours 
+                    </button>
+                    <!-- Le menu : caché par défaut grâce à "hidden" -->
+                    <div id="menu1" class="menu hidden absolute left-0 z-10 w-[100%] origin-center bg-black">
+                        <div class="py-1 text-center opacity-100">
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Socotra</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Yakoutsk</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Danikil</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="relative inline-block text-left">
+                <!-- Le bouton vols-->
+                    <button class="menuButton inline-flex justify-center min-w-[25ch] px-4 py-2 text-sm font-medium text-white border-solid border-black border-x-2 hover:bg-blue-950" data-target="menu2">
+                        Vols 
+                    </button>
+                    <!-- Le menu : caché par défaut grâce à "hidden" -->
+                    <div id="menu2" class="menu hidden absolute left-0 z-10 w-[100%] origin-center bg-black">
+                        <div class="py-1 text-center opacity-100">
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Air Space</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Step Air</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Air Us</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="relative inline-block text-left">
+                    <!-- Le bouton circuits-->
+                    <button class="menuButton inline-flex justify-center min-w-[25ch] px-4 py-2 text-sm font-medium text-white border-solid border-black border-x-2 hover:bg-blue-950" data-target="menu3">
+                        Croisières
+                    </button>
+                    <!-- Le menu : caché par défaut grâce à "hidden" -->
+                    <div id="menu3" class="menu hidden absolute left-0 z-10 w-[100%] origin-center bg-black">
+                        <div class="py-1 text-center opacity-100">
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Mer Rouge</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Danube</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Léna</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="relative inline-block text-left">
+                    <!-- Le bouton croisières-->
+                    <button class="menuButton inline-flex justify-center min-w-[25ch] px-4 py-2 text-sm font-medium text-white border-solid border-black border-x-2 hover:bg-blue-950" data-target="menu4">
+                        Hôtels 
+                    </button>
+                    <!-- Le menu : caché par défaut grâce à "hidden" -->
+                    <div id="menu4" class="menu hidden absolute left-0 z-10 w-[100%] origin-center bg-black">
+                        <div class="py-1 text-center">
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Summer Land</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Sterkh</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">Serdo</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="relative inline-block text-left ">
+                    <!-- Le bouton locations-->
+                    <button class="menuButton inline-flex z-20 justify-center min-w-[25ch] px-4 py-2 ml-0 text-sm font-medium text-white border-solid border-black border-x-2 hover:bg-blue-950" data-target="menu5">
+                        Locations 
+                    </button>
+                    <!-- Le menu : caché par défaut grâce à "hidden" -->
+                    <div id="menu5" class="menu hidden absolute left-0 z-10 w-[100%] origin-center bg-black ">
+                        <div class="py-1 text-center">
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">CarExpress</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">SpeedRide</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-950 ">EcoMotion</a>
+                        </div>
+                    </div>
+                </div>
+                <a href=""><button class="inline-flex justify-center rounded-md opacity-100 bg-white px-4 py-2 ml-0 text-blue-950 font-bold  cursor-pointer">Planifiez votre voyage</button></a>    
+            </div>
+        </div>
+    </header>
+    <section id="destination" class="flex flex-col gap-20 mt-10 justify-center items-center">
+        <h1 class="text-blue-950 md:text-[3.6em] text-4xl text-center text-wrap font-[montserrat-bold] md:underline underline-offset-24 decoration-1 decoration-blue-950/75">Destinations Populaires</h1>
+        <div class="bg-zinc-300 rounded-4xl p-10 md:w-[80%] w-[100vw] md:gap-24 gap-10 flex flex-col">
+            <figure class="flex flex-wrap-reverse justify-center items-center gap-5">
+                <!-- FLIPPING IMAGE INTO MAP-->
+                <div class="flip-card perspective md:mt-0 mt-[-2.5vh]">
+                    <div class="flip-inner duration-300 md:w-[32vw] md:h-[42vh] w-[75vw] h-[32vh]">
+                    <div class="flip-front backface-hidden">
+                        <a href="./yemen.html"><img src="./medias/bg_images/socotra_yemen.jpg" alt="Front Image" class="w-full h-full object-cover md:rounded-4xl shadow-2xs shadow-zinc-200 cursor-pointer" /></a>
+                    </div>
+                    <div class="flip-back backface-hidden absolute inset-0">
+                        <a href="./yemen.html"><div id="map" class="w-full h-full rounded-4xl shadow-2xs shadow-zinc-200 cursor-pointer"></div></a>
+                    </div>
+                    </div>
+                </div>
+                <!--FIN -->
+                <figcaption class="text-black text-center md:p-4 md:block flex flex-col justify-center items-center w-[75vw] md:w-auto">
+                    <h4 class="md:text-[4vh] text-[3.25vh] text-nowrap text-blue-950 font-[montserrat-bold] mb-5">🏝 Socotra, Yémen</h4>
+                    <p class="max-w-[45ch] text-[1.5vh] md:text-[2vh] bg-white md:rounded-4xl font-[poppins-regular] font-medium p-5 shadow-2xs">"Voyagez hors du temps sur une île aux allures d’un autre monde. Socotra, là où la nature réinvente la magie."<span class="flex flex-row-reverse justify-between font-[montserrat-bold] font-bold pt-5">Météo 🌤  18°<span><<</span></span></p>
+                </figcaption>
+            </figure>
+            <figure class="flex flex-wrap justify-center items-center gap-10">
+                <figcaption class="text-black text-center md:p-4 md:block flex flex-col justify-center items-center w-[75vw] md:w-auto">
+                    <h4 class="md:text-[4vh] text-[3.25vh] text-nowrap text-blue-950 font-[montserrat-bold] mb-5">❄️ Yakoutsk, Sibérie</h4>
+                    <p class="max-w-[45ch] text-[1.5vh] md:text-[2vh] bg-white md:rounded-4xl font-[poppins-regular] font-medium p-5 shadow-2xs">"Osez l’extrême : vivez l’hiver le plus glacé de la planète au cœur d’un décor polaire fascinant." <span class="flex justify-between font-[montserrat-bold] font-bold pt-5">Météo 🌤  18°<span>>></span></span></p>
+                </figcaption>
+                <div class="flip-card perspective md:mt-0 mt-[-5vh]">
+                    <div class="flip-inner duration-300 md:w-[32vw] md:h-[42vh] w-[75vw] h-[32vh]">
+                    <div class="flip-front backface-hidden">
+                        <img src="./medias/bg_images/yakoutsk_bg_normal.jpg" alt="Front Image" class="w-full h-full object-cover md:rounded-4xl shadow-2xs shadow-zinc-200 cursor-pointer" />
+                    </div>
+                    <div class="flip-back backface-hidden absolute inset-0">
+                        <a href=""><div id="map2" class="w-full h-full rounded-4xl shadow-2xs shadow-zinc-200 cursor-pointer"></div></a>
+                    </div>
+                    </div>
+                </div>
+
+            </figure>
+            <figure class="flex flex-wrap-reverse justify-center items-center gap-10">
+                <div class="flip-card perspective md:mt-0 mt-[-5vh]">
+                    <div class="flip-inner duration-300 md:w-[32vw] md:h-[42vh] w-[75vw] h-[32vh]">
+                    <div class="flip-front backface-hidden">
+                        <img src="./medias/bg_images/bg_danikil_ethiopia (1).jpg" alt="Front Image" class="w-full h-full object-cover md:rounded-4xl shadow-2xs shadow-zinc-200 cursor-pointer" />
+                    </div>
+                    <div class="flip-back backface-hidden absolute inset-0">
+                        <a href=""><div id="map3" class="w-full h-full rounded-4xl shadow-2xs shadow-zinc-200 cursor-pointer"></div></a>
+                    </div>
+                    </div>
+                </div>
+                <figcaption class="text-black text-center md:p-4 md:rounded-4xl md:block flex flex-col justify-center items-center w-[75vw] md:w-auto">
+                    <h4 class="md:text-[4vh] text-[3.25vh] text-nowrap text-blue-950 font-[montserrat-bold] mb-5">🌋 Danakil, Éthiopie</h4>
+                    <p class="max-w-[45ch] text-[1.5vh] md:text-[2vh] bg-white md:rounded-4xl font-[poppins-regular] font-medium p-5 shadow-2xs">"Entrez dans les entrailles de la Terre : le Danakil vous dévoile ses paysages de feu et de sel, entre mystère et beauté brutale." <span class="flex flex-row-reverse justify-between font-[montserrat-bold] pt-5">Météo 🌤  18°<span><<</span></span></p>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ----------advise section-------------- -->
+    <section id="advice" class="w-full max-w-[800px] mx-auto flex my-[100px]">
+        <div class="practical_advice md:w-[200px] md:h-[200px] bg-[#d9d9d9] md:rounded-full md:relative 
+        cursor-pointer overflow-hidden flex items-center shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)]">
+            <div class="advice_title flex justify-center items-center min-w-[190px] md:transition-all duration-500">
+                <h4 class="text-[1.7rem] font-[montserrat-bold] text-[#131C46] text-center transition-all duration-500">
+                    Conseils<br>Pratiques
+                </h4>
+            </div>
+            <div class="advice_content md:max-w-0  md:overflow-hidden p-[19px_16px_13px_0]">
+                <p class="font-[poppins-medium] md:text-[#3E3E3E] text-black leading-[1.5] text-[0.9rem] mb-[10px]">
+                    Réservez vos vols 2 à 3 mois à l'avance pour bénéficier des meilleurs tarifs.
+                </p>
+                <p class="font-[poppins-medium] md:text-[#3E3E3E] text-black leading-[1.5] text-[0.9rem] mb-[10px]">
+                    Optez pour des passes de transport public en ville et des locations 
+                    de voiture anticipées pour les zones reculées.
+                </p>
+                <p class="font-[poppins-medium] md:text-[#3E3E3E] text-black leading-[1.5] text-[0.9rem]">
+                    Inscrivez-vous aux alertes de prix et restez flexible sur vos dates de voyage
+                    pour obtenir de meilleures offres.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------blog section-------------- -->
+    <section id="blog" class="bg-[#D9D9D9] w-full p-[5rem] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)]">
+        <h3 class="md:text-[3.6rem]  text-3xl text-center text-blue-950 font-['montserrat-extrabold']">Blog d'aventure</h3>
+        <article class="blog_content max-w-[800px] pt-[70px] mx-auto text-[1em] text-black font-['poppins-medium']">
+            <p><strong class="text-blue-950 underline decoration-1">Article 1 :</strong> Dans les jungles oubliées de Bornéo, un voyage au cœur de la nature sauvage. 🌴</p>
+            <p class="my-[30px]"><strong class="text-blue-950 underline decoration-1">Article 2 :</strong>  le Transsibérien, une aventure au rythme des rails. 🚄</p>
+            <p><strong class="text-blue-950 underline decoration-1">Article 3 :</strong> Histoires autour du feu, récits d'aventuriers. 🔥</p>
+        </article>
+    </section>
+
+    <!-- ----------services section--------------- -->
+    <section id="services" class="w-[100vw] md:max-w-[1100px] text-center my-[80px] md:mx-auto ">
+        <h3 class="md:text-[56px] text-4xl text-[#131C46] font-['montserrat-extrabold'] p-[1.8rem]">Nos services</h3>
+        <div class="box_services_A flex flex-wrap justify-center items-center md:gap-[100px]">
+            <figure class="service mt-[3rem] flex flex-row bg-[#D9D9D9] md:w-[500px] md:h-[170px] gap-[10px] p-[15px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] justify-center items-center">
+                <figcaption class="service_content md:w-[320px] md:h-[110px] m-auto">
+                    <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">Voyages Personnalisés</h5>
+                    <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)] mt-[10px]">Chaque voyage est conçu selon vos besoins spécifiques</p>
+                </figcaption>
+                <img src="footer_edit/img/service_perso.png" alt="service" class="m-auto rounded-[20px] w-[150px] h-[130px] shadow-[1px_5px_5px]">
+            </figure>
+            <figure class="service mt-[3rem] flex flex-row bg-[#D9D9D9] md:w-[500px] md:h-[170px] gap-[10px] p-[15px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] justify-center items-center">
+                <img src="footer_edit/img/service_loca.png" alt="service" class="m-auto rounded-[20px] md:w-[150px] md:h-[130px] shadow-[1px_5px_5px]">
+                <figcaption class="service_content md:w-[320px] md:h-[110px] m-auto">
+                    <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">Assurance voyage</h5>
+                    <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)] mt-[10px]">Voyagez en toute sérénité avec nos solutions d'assurance</p>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="box_services_B flex flex-wrap justify-center items-center md:gap-[20px]">
+            <figure class="service mt-[3rem] flex md:flex-row flex-row-reverse bg-[#D9D9D9] md:w-[500px] md:h-[170px] gap-[10px] p-[15px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] justify-center items-center">
+                <img src="footer_edit/img/service_loca.png" alt="service" class="m-auto rounded-[20px] w-[150px] h-[130px] shadow-[1px_5px_5px]">
+                <figcaption class="service_content md:w-[320px] md:h-[110px] m-auto">
+                    <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">Locations</h5>
+                    <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)] mt-[10px]">Des hébergements et des moyens de transport de qualité pour votre confort</p>
+                </figcaption>
+            </figure>
+            <figure class="service mt-[3rem] flex md:flex-row flex-row-reverse bg-[#D9D9D9] md:w-[500px] md:h-[170px] gap-[10px] p-[15px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] justify-center items-center">
+                <figcaption class="service_content md:w-[320px] md:h-[110px] m-auto">
+                    <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">Assistance 24/7</h5>
+                    <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)] mt-[10px]">Nous sommes là pour vous, avant, pendant et après votre voyage</p>
+                </figcaption>
+                <img src="footer_edit/img/service_assist.png" alt="service" class="m-auto rounded-[20px] w-[150px] h-[130px] shadow-[1px_5px_5px]">
+            </figure>
+            <figure class="service mt-[3rem] flex flex-row bg-[#D9D9D9] md:w-[500px] md:h-[170px] gap-[10px] p-[15px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] justify-center items-center">
+                <figcaption class="service_content md:w-[320px] md:h-[110px] m-auto">
+                    <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">Prix Compétitifs</h5>
+                    <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)] mt-[10px]">Vivez des aventures uniques sans casser la banque</p>
+                </figcaption>
+                <img src="footer_edit/img/service_price.png" alt="service" class="m-auto rounded-[20px] w-[150px] h-[130px] shadow-[1px_5px_5px]">
+            </figure>
+        </div>
+    </section>
+
+    <!-- ------customer reviews section----------- -->
+    <section id="customer_reviews" class=" w-full text-center my-[150px]">
+        <h3 class="text-[46px] text-[#131C46] font-['montserrat-extrabold']">Ce que disent nos clients</h3>
+        <div class="flex justify-center mt-[80px] flex-wrap gap-[50px]">
+            <figure class="bg-[#D9D9D9] w-[220px] h-[335px] gap-[30px] p-[12px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)]">
+                <img src="footer_edit/img/reviewer_photo (1).png" alt="photo costomer review" class="mx-auto rounded-[20px] w-[150px] h-[130px] border-[#F2EEEE] shadow-[1px_5px_5px] mb-[8px]">
+                <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">O. Nord</h5>
+                <p class="p-[5px]">⭐⭐⭐⭐⭐</p>
+                <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)]">Très impatiente d’y retourner, allez visiter l’Amazonie sauvage</p>
+            </figure>
+            <figure class="bg-[#D9D9D9] w-[220px] h-[335px] gap-[30px] p-[12px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)]">
+                <img src="footer_edit/img/reviewer_photo (2).png" alt="photo costomer review" class="mx-auto rounded-[20px] w-[150px] h-[130px] border-[#F2EEEE] shadow-[1px_5px_5px] mb-[8px]">
+                <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">H. Paul</h5>
+                <p class="p-[5px]">⭐⭐⭐⭐⭐</p>
+                <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)]">Une expérience authentique et inoubliable.</p>
+            </figure>
+            <figure class="bg-[#D9D9D9] w-[220px] h-[335px] gap-[30px] p-[12px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] md:block hidden">
+                <img src="footer_edit/img/reviewer_photo (3).png" alt="photo costomer review" class="mx-auto rounded-[20px] w-[150px] h-[130px] border-[#F2EEEE] shadow-[1px_5px_5px] mb-[8px]">
+                <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">M. Marie</h5>
+                <p class="p-[5px]">⭐⭐⭐⭐⭐</p>
+                <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)]">Un voyage incroyable dans des lieux que je n'aurais jamais imaginés !</p>
+            </figure>
+            <figure class="bg-[#D9D9D9] w-[220px] h-[335px] gap-[30px] p-[12px] rounded-[20px] shadow-[2px_4px_32px_5px_rgba(0,0,0,0.2)] md:block hidden">
+                <img src="footer_edit/img/reviewer_photo (4).png" alt="photo costomer review" class="mx-auto rounded-[20px] w-[150px] h-[130px] border-[#F2EEEE] shadow-[1px_5px_5px] mb-[8px]">
+                <h5 class="text-[20px] text-[#333] font-['montserrat-bold']">T. Mathieu</h5>
+                <p class="p-[5px]">⭐⭐⭐⭐⭐</p>
+                <p class="text-[18px] text-[#3E3E3E] font-['montserrat-medium'] rounded-[15px] bg-[#F2EEEE] leading-[25px] p-[5px] shadow-[1px_5px_7px_rgba(0,0,0,0.3)]">Tokyo était incroyable, ses sources chaudes. Allez essayer !</p>
+            </figure>
+        </div>
+    </section>
+
+    <!------------------ Contact section --------------->
+    <section id="contact" class="flex flex-col w-[100vw] py-20 bg-[#D9D9D9]">
+        <h2 class="text-center md:text-[40px] font-['montserrat-extrabold'] text-[#333]">Besoin d'un devis,<br><span class="md:text-[28px] font-['montserrat-bold'] text-[#3E3E3E]">Laissez-nous un message</span></h2>
+        <div class="items-center m-12 mx-auto md:w-[550px] rounded-3xl bg-white shadow-2xl">
+            <article class="mt-1 font-['montserrat-bold'] md:text-[20px] text-[#3F3E3E]">
+                <label for="message" class="flex items-center justify-center">Votre message / votre demande</label>
+                <textarea id="message" placeholder="Bonjour !!! Pensez bien à signer votre message (Nom)😃" class="md:w-[535px] md:h-[100px] md:text-[18px] font-['montserrat-medium'] mx-2 md:p-[10px] pb-16 mt-2 border-none rounded-l-3xl rounded-tr-3xl focus:outline-none focus:ring-1 focus:ring-indigo-800"></textarea>
+            </article>
+
+            <article class="rounded-br-2xl md:w-[550px] flex">
+                <input type="email" id="email" placeholder="Votre adresse e-mail" class="md:w-[405px] md:text-[18px] font-['montserrat-medium'] mx-2 border-none rounded-l-3xl rounded-tr-3xl shadow-[0px_10px_30px_rgba(0,0,0,0.5)] bg-white border focus:outline-none focus:ring-1 focus:ring-indigo-800 p-2.5">
+                <button type="submit" class="rounded-br-3xl rounded-tl-3xl text-white font-['montserrat-bold'] py-[9px] px-[20px] md:text-[20px] bg-[#3E3E3E] hover:bg-[#131C46] transition duration-300">Envoyer</button>
+            </article>
+        </div>
+    </section>
+
+    <!---------------------Footer------------------------>
+    <footer class="bg-[#D9D9D9] p-[10px]" >
+        <div class="flex w-full items-center flex-row gap-[50px] justify-center">
+            <div class="gap-[50px] mb-[40px]">
+                <article class="flex text-left gap-[50px] text-[#333] flex-wrap mb-[40px] ">
+                    <figure>
+                        <h3 class="font-['montserrat-bold'] md:text-[20px] text-[16px] ">Nos destinations</h3>
+                        <ul class="font-['montserrat-medium'] md:text-[17px] text-[14px] mt-[10px] leading-[30px]">
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Nouvelle-guinée</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Egypte</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Amazonie</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Japon</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Australie</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Kenya</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Congo</a></li>
+                        </ul>
+                    </figure>
+
+                    <figure>
+                        <h3 class="font-['montserrat-bold'] md:text-[20px] text-[16px] ">Nos services</h3>
+                        <ul class="font-['montserrat-medium'] md:text-[17px] text-[14px] mt-[10px] leading-[30px]">
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Voyage personnalisé</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Assurance voyage</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Location hôtel</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Assistance 24/7</a></li>
+                            <li><a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Prix compétitifs</a></li>
+                        </ul>
+                    </figure>
+
+                    <figure>
+                        <figcaption>
+                            <h3 class="font-['montserrat-bold'] md:text-[20px] text-[16px] ">Contacts</h3>
+                            <p class="font-['montserrat-medium'] md:text-[17px] text-[14px] mt-[10px] leading-[30px]">
+                                <a href="#contact" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Fix : (+33) 01 23 45 67 89</a><br>
+                                <a href="#contact" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Courriel : evasion@voyage.fr</a><br>
+                                <a href="#contact" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Courrier : 4 evasion, 58000</a>
+                            </p>
+                        </figcaption>
+
+                        <figcaption>
+                            <h3 class="font-['montserrat-bold'] md:text-[20px] text-[16px] mt-[20px]">Nos partenaires</h3>
+                            <p class="font-['montserrat-medium'] md:text-[17px] text-[14px] mt-[10px] leading-[30px]">
+                                <a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Evasion Airlines</a><br>
+                                <a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Evasion Touristique</a>
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <h3  class="font-['montserrat-bold'] md:text-[20px] text-[16px]">Langues</h3>
+                        <ul class="font-['montserrat-medium'] md:text-[17px] text-[14px] mt-[10px] leading-[30px]">
+                            <li><a href="index.html" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Français</a></li>
+                            <li><a href="en.html" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">English</a></li>
+                            <li><a href="jpn.html" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">日本語</a></li>
+                        </ul>
+                    </figure>
+                </article>
+
+                <article class="flex items-center gap-[40px] justify-center flex-wrap">
+                    <h3 class="font-['montserrat-bold'] text-[20px]">Moyens de paiements acceptés</h3>
+                    <a href="https://www.paypal.com/fr/home"><img title="Paypal" src="footer_edit/img/logo_paypal.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                    <a href="https://www.mastercard.fr/fr-fr.html"><img title="Mastercard" src="footer_edit/img/logo_mastercard.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                    <a href="https://www.visa.fr/"><img title="Visa" src="footer_edit/img/logo_visa.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                </article>
+
+                <article class="flex items-center gap-[40px] justify-center flex-wrap mt-5 md:mt-auto">
+                    <a href="#"><img src="footer_edit/img/explore_with_us-no_bg.svg" alt="Footer logo" class="w-[200px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110 md:block hidden"></a>
+                    <h3 class="font-['montserrat-bold'] text-[20px] md:block hidden">Restez connectés</h3>
+                    <a href="https://www.whatsapp.com/?lang=fr_FR"><img title="Whatsapp" src="footer_edit/img/logo_whatsapp.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                    <a href="https://x.com/Accueil"><img title="TwitterX" src="footer_edit/img/logo_twitterx.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                    <a href="https://www.facebook.com/"><img title="Facebook" src="footer_edit/img/logo_facebook.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                    <a href="https://www.instagram.com/"><img title="Instagram" src="footer_edit/img/logo_instagram.svg" alt="Footer logo" class="w-[45px] object-center my-auto flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"></a>
+                </article>
+            </div>
+            <div class="w-[360px] mt-[-60px] md:block hidden">
+                <h2 class="font-['montserrat-bold'] text-[38px] text-[#333] mb-[10px] ">À propos de nous</h2>
+                <p class="font-['poppins-medium'] text-[15px] text-[#3E3E3E] text-justify mt-[10px] leading-[28px]">
+                    Depuis des années, nous rêvons d'inspirer des voyageurs à dépasser les frontières classiques des guides touristiques. 
+                    Notre objectif est simple : révéler la beauté cachée du monde et célébrer la diversité de la planète.<br><br> 
+                    Nous sommes une équipe de passionnés de voyage, d'aventuriers dans l'âme, qui avons eu la chance d'explorer des 
+                    contrées reculées, des jungles profondes aux montagnes isolées. Chaque récit et suggestion de notre site est le 
+                    fruit de notre expérience et de notre amour pour le voyage authentique.
+                </p>
+            </div>
+        </div>
+
+        <p class="font-['montserrat-medium'] text-[15px] text-center">
+            <a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Mentions légales &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">Données personneles &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">CGV &nbsp;&nbsp;&nbsp; I &nbsp;&nbsp;&nbsp;</a>
+            <a href="#" class="transition-colors duration-300 hover:text-[#131c46] hover:font-bold">©évasion_voyage_by_C&S</a>
+        </p>
+    </footer>
+
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>    
+<script src="./js/navscroll.js"></script>
+<script src="./js/dropdown.js"></script>
+<script src="./js/mapdisplay.js"></script>
+</body>
+</html>

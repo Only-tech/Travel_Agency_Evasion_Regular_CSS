@@ -1,0 +1,280 @@
+@config "./tailwind.config.js";
+
+
+@import "tailwindcss";
+
+.perspective {
+    perspective: 1000px;
+  }
+  .flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
+    position: relative;
+  }
+  .flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-front,
+  .flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .flip-back {
+    transform: rotateY(180deg);
+  }
+
+
+  .practical_advice {
+    transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275); /*Ease with light bounce */
+    animation: ease-bounce 0.5s ease-out infinite;
+  }
+
+  @keyframes ease-bounce {
+    0%, 100% {
+      transform: scale(1.05);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  /* ......Expanded width (640px with scale= 800px)......... */
+  .practical_advice:hover {
+    transform: scale(1.25);
+    margin-left: 80px;
+    width: 640px;
+    animation: none;
+  }
+
+  .advice_content {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* ......unhide advice content......... */
+  .practical_advice:hover .advice_content {
+    max-width: 432px;
+    opacity: 1;
+  }
+
+  .advice_content p {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+  }
+
+  .advice_content p:nth-child(2) {
+    transition-delay: 0.5s;
+  }
+
+  .advice_content p:nth-child(3) {
+    transition-delay: 0.7s;
+  }
+
+  .practical_advice:hover .advice_content p {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+
+  /* Carroussel */
+  .carousel-media {
+    width: 60%;
+    position: relative;
+  }
+  
+  .carousel-images {
+    position: relative;
+    /* height: 80%;
+    overflow: hidden; */
+  }
+  
+  .carousel-images img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+  }
+  
+  .carousel-images img.active {
+    opacity: 1;
+  }
+
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #map {
+    flex: 1;
+  }
+
+  #nav-items {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    overflow-x: auto;
+    justify-content: center;
+    width: 100%;
+    filter: drop-shadow(9px 5px 10px rgba(0,0,0,0.5));
+  }
+
+  #nav-items button:not(:last-child) {
+  background-color: #131C46;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 62px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 15vw;
+  }
+
+  #nav-items button:not(:first-child, :last-child){
+    margin-left: -5%;
+  }
+
+  #nav-items button:hover {
+    background: var(--color-blue-950) ;
+    transform: scale(1.25);
+    color: white;
+  }
+
+  #legend {
+    padding: 0.5rem 1rem;
+    background: #e8e8e8;
+    border-top: 1px solid #ccc;
+  }
+
+  .legend-item {
+    margin-bottom: 0.5rem;
+  }
+
+  #info-panel h2 {
+  margin: 1rem 0 1.5rem 0;
+  text-align: center;
+  font-family: 'montserrat-bold';
+  font-size: 1.6rem;
+  text-decoration: underline 1px black;
+  text-underline-offset: 0.5em;
+
+  }
+
+  #info-panel p {
+  margin: 1.5rem 0 0 0;
+  }
+
+  #nav-items .tour-button {
+    background-color: #131C46;
+clip-path: polygon( 98.979% 22.937%,98.764% 22.746%,98.764% 22.746%,98.183% 22.374%,97.558% 22.04%,96.888% 21.744%,96.177% 21.486%,95.425% 21.267%,94.635% 21.086%,93.808% 20.945%,92.946% 20.844%,92.05% 20.783%,91.123% 20.762%,91.123% 20.762%,89.623% 20.811%,88.131% 20.951%,86.664% 21.171%,85.24% 21.46%,83.879% 21.807%,82.597% 22.202%,81.413% 22.634%,80.345% 23.092%,79.411% 23.565%,78.629% 24.043%,60.253% 36.59%,24.431% 44.198%,24.431% 44.198%,24.337% 44.221%,24.245% 44.246%,24.155% 44.275%,24.065% 44.307%,23.978% 44.342%,23.891% 44.381%,23.806% 44.423%,23.723% 44.469%,23.641% 44.518%,23.56% 44.57%,23.56% 44.57%,23.361% 44.725%,23.179% 44.898%,23.018% 45.087%,22.877% 45.291%,22.757% 45.507%,22.659% 45.735%,22.585% 45.971%,22.534% 46.214%,22.509% 46.463%,22.509% 46.714%,22.509% 46.714%,22.556% 47.069%,22.65% 47.405%,22.788% 47.719%,22.967% 48.008%,23.183% 48.267%,23.433% 48.493%,23.713% 48.683%,24.019% 48.832%,24.349% 48.938%,24.698% 48.996%,39.847% 50.521%,25.08% 60.601%,25.08% 60.601%,23.768% 59.998%,22.47% 59.398%,21.187% 58.803%,19.919% 58.212%,18.667% 57.626%,17.431% 57.046%,16.213% 56.472%,15.013% 55.903%,13.832% 55.342%,12.671% 54.787%,12.671% 54.787%,10.948% 54.002%,9.348% 53.357%,7.873% 52.854%,6.522% 52.491%,5.294% 52.269%,4.19% 52.186%,3.21% 52.245%,2.353% 52.443%,1.62% 52.781%,1.011% 53.259%,1.011% 53.259%,0.531% 53.866%,0.218% 54.533%,0.048% 55.237%,0% 55.957%,0.052% 56.671%,0.181% 57.358%,0.365% 57.996%,0.582% 58.563%,0.81% 59.039%,1.027% 59.4%,15.251% 77.842%,15.251% 77.842%,15.397% 78.042%,15.547% 78.225%,15.702% 78.39%,15.862% 78.538%,16.027% 78.668%,16.198% 78.781%,16.374% 78.877%,16.556% 78.955%,16.744% 79.016%,16.939% 79.061%,16.939% 79.061%,17.263% 79.093%,17.58% 79.079%,17.89% 79.024%,18.195% 78.933%,18.496% 78.81%,18.794% 78.661%,19.089% 78.489%,19.384% 78.301%,19.679% 78.1%,19.975% 77.892%,23.577% 75.41%,43.585% 65.694%,40.657% 76.152%,40.657% 76.152%,40.587% 76.5%,40.568% 76.847%,40.597% 77.187%,40.673% 77.516%,40.794% 77.83%,40.957% 78.125%,41.16% 78.396%,41.402% 78.638%,41.68% 78.847%,41.992% 79.019%,41.992% 79.019%,42.086% 79.06%,42.183% 79.097%,42.281% 79.129%,42.381% 79.158%,42.482% 79.182%,42.585% 79.202%,42.688% 79.217%,42.791% 79.228%,42.895% 79.235%,42.999% 79.237%,42.999% 79.237%,43.147% 79.233%,43.293% 79.22%,43.437% 79.198%,43.579% 79.168%,43.719% 79.129%,43.857% 79.083%,43.991% 79.028%,44.123% 78.965%,44.252% 78.894%,44.378% 78.815%,44.378% 78.815%,44.456% 78.76%,44.531% 78.703%,44.603% 78.642%,44.673% 78.579%,44.739% 78.513%,44.803% 78.445%,44.865% 78.374%,44.924% 78.3%,44.98% 78.223%,45.035% 78.143%,56.484% 60.744%,63.487% 52.55%,94.543% 31.348%,94.543% 31.348%,94.685% 31.252%,94.827% 31.157%,94.968% 31.063%,95.108% 30.971%,95.249% 30.879%,95.389% 30.788%,95.528% 30.697%,95.668% 30.607%,95.807% 30.517%,95.947% 30.427%,95.947% 30.427%,96.266% 30.223%,96.581% 30.021%,96.889% 29.819%,97.19% 29.616%,97.481% 29.414%,97.763% 29.209%,98.033% 29.002%,98.29% 28.792%,98.532% 28.579%,98.759% 28.361%,98.759% 28.361%,99.186% 27.886%,99.523% 27.399%,99.771% 26.899%,99.929% 26.385%,99.997% 25.855%,99.975% 25.309%,99.863% 24.745%,99.659% 24.163%,99.365% 23.56%,98.979% 22.937% ); 
+    box-shadow: #422800 4px 4px 0 0;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 65px;
+    margin-left: 5px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transform: rotate(-15deg);
+  }
+
+  #nav-items .tour-button:hover {
+    background: var(--color-blue-950) ;
+    transform: scale(1.25);
+    color: white;
+  }
+
+
+
+    /* ........scrollbar width......... */
+    .description::-webkit-scrollbar {
+        width: 4px;
+        max-height: 50px;
+    }
+
+    /* ......cursor color....... */
+    .description::-webkit-scrollbar-thumb {
+        background: #131C46;
+        border-radius: 10px;
+    }
+    
+    /* .........scrollbar background...... */
+    .description::-webkit-scrollbar-track {
+        background: #fff;
+        margin: 50px 0;
+    }
+
+    @media(max-width:768px) {
+      .advice_title{
+        display: block;
+      }
+      .advice_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 75vw;
+        transition: none;
+        color: black;
+      }
+      .practical_advice {
+        width: 100vw;
+        opacity: 1;
+        animation: none;
+        flex-direction: column;
+      }
+      .advice_content p {
+        opacity: 1;
+        transform: none;
+      }
+
+      #nav-items{
+        max-width: 100vw;
+      }
+
+      #nav-items button:not(:last-child) {
+        background-color: #131C46;
+        clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 0 32px;
+        line-height: 12px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 5vw;
+        }
+        #nav-items button:not(:first-child, :last-child){
+          margin-left: -12%;
+        }
+        #nav-items .tour-button{
+          display: none;
+        }
+    }

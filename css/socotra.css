@@ -1,0 +1,450 @@
+   *, 
+   *::after, *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+
+    /* ........socotra destination contain........ */
+    #socotra_tour {
+        display: flex;
+        background-color: #D9D9D9;
+        gap: 2rem;
+        padding: 2.5rem;
+        align-items: center;
+        margin: 5rem auto;
+        max-width: fit-content;
+        border-radius: 100px;
+        box-shadow: 2px 4px 32px 5px rgba(0,0,0,0.2);
+        animation: transform ease 3s;
+    }
+
+    .socotra_content {
+        max-width: 440px;
+        display: grid;
+        place-items: center;
+        gap: 2rem;
+    }
+
+    .socotra_content h3, h4 {
+        font-family: 'montserrat-semibold';
+        font-size: 1.9rem;
+        text-align: center;
+        color: #131C46;
+
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        background-color: #F2EEEE;
+        font-family: 'poppins-regular';
+        color: #333;
+        text-align: justify;
+        overflow-y: auto;
+        max-height: 220px;
+        max-width: 400px;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0.625rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ........scrollbar......... */
+    .description::-webkit-scrollbar {
+        width: 4px;
+        max-height: 50px;
+    }
+
+    /* ......cursor color....... */
+    .description::-webkit-scrollbar-thumb {
+        background: #131C46;
+        border-radius: 10px;
+    }
+
+    /* ..cursor color turn to another one when mouse pointed. */
+    .description::-webkit-scrollbar-thumb:hover {
+        background: #333;
+    }
+    
+    /* .........scrollbar background...... */
+    .description::-webkit-scrollbar-track {
+        background: #fff;
+        margin: 50px 0;
+    }
+
+    .tourist_spots, 
+    .wheather_info, 
+    .price_info, 
+    .tour_practical_advice {
+        font-family: 'poppins-medium';
+        font-size: 1rem;
+        color: #333;
+        background-color: #F2EEEE;
+        padding: 0.625rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        animation: transform ease 3s;
+    }
+    
+    /*....1st column block for <strong> and 2nd flex....*/
+    .tourist_spots ul {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 0.625rem;
+        list-style-type: none;
+    }
+
+    .tourist_spots li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 0.625rem;
+    }
+
+
+    .wheather_info {
+        width: 83%;
+    }
+
+    .wheather_info span {
+        font-family: 'montserrat-semibold';
+        color: orangered;
+    }
+
+    .price_info {
+        font-size: 1.25rem;
+    }
+
+    .price_info span {
+        font-family: 'montserrat-semibold';
+        font-size: 1.5rem;
+        color: #131C46;
+    }
+
+    .link_to_advising {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: #131C46;
+    }
+
+
+    .link_to_advising:hover {
+        color: orangered;
+    }
+
+    .booking_button {
+        background-color: #131C46;
+        font-family: 'montserrat-medium';
+        font-size: larger;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 50px;
+        border: 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+        animation: ease-bounce 0.5s ease-out infinite;
+    }
+
+    @keyframes ease-bounce {
+        0%, 100% {
+            transform: scale(1.05);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    .booking_button:hover {
+        background-color: #333;
+        animation: none;
+    }
+
+
+    .carousel_wheather_advice {
+        display: grid;
+        max-width: 700px;
+        width: 100%;
+        position: relative;
+        gap: 2rem;    
+    }
+
+    /* .......caroussel.......... */
+    .carousel-images {
+        position: relative;
+        height: 40vh;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        border-radius: 2rem 2rem 0 0;
+    }
+    
+    .carousel-images img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transform: scale(1.4); /*...initial scale... */
+        transition: transform 3s ease-in-out, opacity 0.8s ease-in-out;
+    }
+  
+    .carousel-images img.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .wheather_widget {
+        border-radius: 0 0 2rem 2rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        overflow: hidden;
+    }
+    
+    #map {
+        flex: 1;
+    }
+
+    #nav-items {
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+        overflow-x: auto;
+        justify-content: center;
+        width: 100%;
+        filter: drop-shadow(9px 5px 10px rgba(0,0,0,0.5));
+    }
+
+    #nav-items button:not(:last-child) {
+        background-color: #131C46;
+        clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 0 50px;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 15vw;
+    }
+
+    #nav-items button:not(:first-child, :last-child){
+        margin-left: -5%;
+    }
+
+    #nav-items button:hover {
+        background: #D9D9D9 ;
+        transform: scale(1.25);
+        color: #131C46;
+        border: 0;
+    }
+
+    #legend {
+        padding: 0.5rem 1rem;
+        background: #e8e8e8;
+        border-top: 1px solid #ccc;
+    }
+
+    .legend-item {
+        margin-bottom: 0.5rem;
+    }
+
+    #info-panel h2 {
+        margin: 1rem 0 1.5rem 0;
+        text-align: center;
+        font-family: 'montserrat-bold';
+        font-size: 1.6rem;
+        text-decoration: underline 1px black;
+        text-underline-offset: 0.5em;
+
+    }
+
+    #info-panel p {
+        margin: 1.5rem 0 0 0;
+        font-family: 'poppins-medium';
+        padding: 0.5rem;
+    }
+
+    #nav-items .tour-button {
+        background-color: #131C46;
+        clip-path: polygon( 98.979% 22.937%,98.764% 22.746%,98.764% 22.746%,98.183% 22.374%,97.558% 22.04%,96.888% 21.744%,96.177% 21.486%,95.425% 21.267%,94.635% 21.086%,93.808% 20.945%,92.946% 20.844%,92.05% 20.783%,91.123% 20.762%,91.123% 20.762%,89.623% 20.811%,88.131% 20.951%,86.664% 21.171%,85.24% 21.46%,83.879% 21.807%,82.597% 22.202%,81.413% 22.634%,80.345% 23.092%,79.411% 23.565%,78.629% 24.043%,60.253% 36.59%,24.431% 44.198%,24.431% 44.198%,24.337% 44.221%,24.245% 44.246%,24.155% 44.275%,24.065% 44.307%,23.978% 44.342%,23.891% 44.381%,23.806% 44.423%,23.723% 44.469%,23.641% 44.518%,23.56% 44.57%,23.56% 44.57%,23.361% 44.725%,23.179% 44.898%,23.018% 45.087%,22.877% 45.291%,22.757% 45.507%,22.659% 45.735%,22.585% 45.971%,22.534% 46.214%,22.509% 46.463%,22.509% 46.714%,22.509% 46.714%,22.556% 47.069%,22.65% 47.405%,22.788% 47.719%,22.967% 48.008%,23.183% 48.267%,23.433% 48.493%,23.713% 48.683%,24.019% 48.832%,24.349% 48.938%,24.698% 48.996%,39.847% 50.521%,25.08% 60.601%,25.08% 60.601%,23.768% 59.998%,22.47% 59.398%,21.187% 58.803%,19.919% 58.212%,18.667% 57.626%,17.431% 57.046%,16.213% 56.472%,15.013% 55.903%,13.832% 55.342%,12.671% 54.787%,12.671% 54.787%,10.948% 54.002%,9.348% 53.357%,7.873% 52.854%,6.522% 52.491%,5.294% 52.269%,4.19% 52.186%,3.21% 52.245%,2.353% 52.443%,1.62% 52.781%,1.011% 53.259%,1.011% 53.259%,0.531% 53.866%,0.218% 54.533%,0.048% 55.237%,0% 55.957%,0.052% 56.671%,0.181% 57.358%,0.365% 57.996%,0.582% 58.563%,0.81% 59.039%,1.027% 59.4%,15.251% 77.842%,15.251% 77.842%,15.397% 78.042%,15.547% 78.225%,15.702% 78.39%,15.862% 78.538%,16.027% 78.668%,16.198% 78.781%,16.374% 78.877%,16.556% 78.955%,16.744% 79.016%,16.939% 79.061%,16.939% 79.061%,17.263% 79.093%,17.58% 79.079%,17.89% 79.024%,18.195% 78.933%,18.496% 78.81%,18.794% 78.661%,19.089% 78.489%,19.384% 78.301%,19.679% 78.1%,19.975% 77.892%,23.577% 75.41%,43.585% 65.694%,40.657% 76.152%,40.657% 76.152%,40.587% 76.5%,40.568% 76.847%,40.597% 77.187%,40.673% 77.516%,40.794% 77.83%,40.957% 78.125%,41.16% 78.396%,41.402% 78.638%,41.68% 78.847%,41.992% 79.019%,41.992% 79.019%,42.086% 79.06%,42.183% 79.097%,42.281% 79.129%,42.381% 79.158%,42.482% 79.182%,42.585% 79.202%,42.688% 79.217%,42.791% 79.228%,42.895% 79.235%,42.999% 79.237%,42.999% 79.237%,43.147% 79.233%,43.293% 79.22%,43.437% 79.198%,43.579% 79.168%,43.719% 79.129%,43.857% 79.083%,43.991% 79.028%,44.123% 78.965%,44.252% 78.894%,44.378% 78.815%,44.378% 78.815%,44.456% 78.76%,44.531% 78.703%,44.603% 78.642%,44.673% 78.579%,44.739% 78.513%,44.803% 78.445%,44.865% 78.374%,44.924% 78.3%,44.98% 78.223%,45.035% 78.143%,56.484% 60.744%,63.487% 52.55%,94.543% 31.348%,94.543% 31.348%,94.685% 31.252%,94.827% 31.157%,94.968% 31.063%,95.108% 30.971%,95.249% 30.879%,95.389% 30.788%,95.528% 30.697%,95.668% 30.607%,95.807% 30.517%,95.947% 30.427%,95.947% 30.427%,96.266% 30.223%,96.581% 30.021%,96.889% 29.819%,97.19% 29.616%,97.481% 29.414%,97.763% 29.209%,98.033% 29.002%,98.29% 28.792%,98.532% 28.579%,98.759% 28.361%,98.759% 28.361%,99.186% 27.886%,99.523% 27.399%,99.771% 26.899%,99.929% 26.385%,99.997% 25.855%,99.975% 25.309%,99.863% 24.745%,99.659% 24.163%,99.365% 23.56%,98.979% 22.937% ); 
+        box-shadow: #422800 4px 4px 0 0;
+        color: white;
+        cursor: pointer;
+        /* display: inline-block; */
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0 65px;
+        margin-left: 5px;
+        line-height: 2rem;
+        /* text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none; */
+        touch-action: manipulation;
+        transform: rotate(-15deg);
+    }
+
+    #nav-items .tour-button:hover {
+        background-color: #D9D9D9 ;
+        transform: scale(1.25);
+        color: #131C46;
+    }
+
+
+    /* Conteneur principal */
+    .Map_Tour {
+        overflow: hidden;
+    }
+
+    /* Bloc navigation */
+    #nav-items {
+        margin-top: 4rem;
+        background-image: url('/medias/bg_images/test_banniere.png');
+        background-size: contain;
+        background-position: center;
+    }
+
+    /* Conteneur carte + panneau */
+    #map-container {
+        display: flex;
+        height: 75vh;
+        width: 100%;
+    }
+
+    /* Carte */
+    #map {
+        margin-left: 0.25rem;
+        flex-grow: 2;
+        width: 75%;
+        /* border-radius: 100px; */
+    }
+
+
+
+
+    /* ..........Section recommandations.......... */
+    #recommandation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-family: 'poppins-medium';
+        padding-top: 3rem;
+        width: 100%;
+        background-color: #D9D9D9;
+    }
+
+    .recommendation-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 260px;
+        justify-content: space-between;
+    }
+
+    .recommendation-item img {
+        display: grid;
+        width: 50px;
+        align-self: center;
+        margin: 0 auto;
+    }
+
+    .separator {
+        height: 5px;
+        width: 150px;
+        background-color: #131C46;
+        margin: 2rem auto;
+        border-radius: 50%;
+    }
+
+    .currency-conversion {
+        display: grid;
+        background-color: #F2EEEE;
+        padding: 15px;
+        border-radius: 1rem;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 230px;
+        text-align: start;
+        gap: 0.5rem;
+    }
+
+    #destinationCurrency, 
+    #userCurrency {
+        padding: 0.3rem;
+        border-radius: 0.5rem;
+    }
+
+
+
+    @media (max-width: 1280px) {
+        /* ........socotra destination contain........ */
+        .carousel-images {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        /* ........socotra destination contain........ */
+        .carousel-images {
+            height: 350px;
+        }
+
+        /* Conteneur carte + panneau */
+        #map-container {
+            display: flex;
+            flex-direction: column-reverse;
+            height: 55vh;
+            width: 100%;
+        }
+
+        #map {
+            display: flex;
+            width: 100%;
+        }
+
+        #nav-items {
+            width: 100%;
+        }
+
+    }
+
+    @media (max-width: 820px) {
+        /* ........socotra destination contain........ */
+        #socotra_tour {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1rem;
+            border-radius: 30px;
+        }
+
+        .carousel-images {
+            height: 35vh;
+        }
+
+        #info-panel {
+            width: 100%;
+        }
+    }
+
+
+    @media (max-width: 656px) {
+        .carousel-images {
+            height: 25vh;
+        }
+    }
+
+
+    

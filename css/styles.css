@@ -1,0 +1,1983 @@
+   *, 
+   *::after, *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: 100vh;
+        font-size: 16px;
+    }
+/* ......................................... */
+    
+/* ...hover animation for interactive elements........ */
+    .plan_button:hover,
+    .send_button:hover, 
+    #scrollTopBtn:hover {
+        animation: bounce-effect 0.6s ease;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .travel_logo:hover,
+    .header_logo:hover,
+    .footer_logo_links a:hover,
+    .home_icone:hover  {
+        animation: bounce-effect 0.6s ease;
+    }
+    
+    @keyframes bounce-effect {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* ....... text ......... */
+    .header_menu a:hover {
+        /* font-family: 'montserrat-bold'; */
+        color: #3E3E3E;
+    }
+
+    .destination_card a:hover, 
+    .preview-container a:hover, 
+    .blog_content a:hover,
+    .footer_links a:hover, 
+    .rights a:hover {
+        font-weight: 800;
+        color: #131C46;
+    }
+
+    /* .....box animation...... */
+    /* #socotra_tour:hover,
+    .carousel_wheather_advice article:hover,
+    .tour_practical_advice:hover,
+    .tourist_spots:hover,
+    .wheather_info:hover,
+    .price_info:hover,
+    .destination_place:hover,
+    .box_destinations:hover,
+    #blog:hover,
+    .service:hover, 
+    .review:hover {
+        transform: translateY(-10px);
+    } */
+
+
+
+/* .......................................... */
+
+/* ..........................scrollbar........................ */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* .........scrollbar background...... */
+    ::-webkit-scrollbar-track {
+        background: #d9d9d9;
+        border-radius: 5px;
+        margin: 20px 0;
+    }
+
+    /* ......cursor color....... */
+    ::-webkit-scrollbar-thumb {
+        background: #131C46;
+        border-radius: 5px;
+    }
+
+    /* ..cursor color turn to another one when mouse pointed. */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #333;
+    }
+/* ......................................................... */
+
+
+
+/* ..........cookies section................................... */
+    .cookie {
+        position: fixed;
+        width: 28.125rem;
+        height: 16.25rem;
+        background-color: #d9d9d9;
+        color: #3E3E3E;
+        padding: 15px;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 40px;
+        bottom: -100px;
+        right: 0;
+        transform: translateX(-5%);
+        transition: bottom 0.8s ease-in-out, opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+        display: flex;
+        opacity: 0;
+        filter: blur(5px); /*..add blur..*/
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .show {
+        bottom: 20px;
+        opacity: 1;
+        filter: blur(0px); /*..delete blur.. */
+    }
+
+    .cookie .content {
+        font-family: 'montserrat-medium';
+        text-align: center;
+        max-height: 13.125rem;
+        overflow-y: auto;
+        background-color: #F2EEEE;
+        padding: 0.93rem;
+        border-radius: 20px;
+        margin-bottom: 0.93rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ........scrollbar width......... */
+    .cookie .content::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* ......cursor color....... */
+    .cookie .content::-webkit-scrollbar-thumb {
+        background: #131C46;
+        border-radius: 10px;
+    }
+
+        /* ..cursor color turn to another one when mouse pointed. */
+    .cookie .content::-webkit-scrollbar-thumb:hover {
+        background: #333;
+    }
+    
+    /* .........scrollbar background...... */
+    .cookie .content::-webkit-scrollbar-track {
+        background: #fff;
+        margin: 30px 0;
+    }
+
+    .cookie .buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .cookie button {
+        background-color: #131C46;
+        color: #fff;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 20px 0 0 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .cookie button.reject {
+        background-color: #3E3E3E;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .cookie button:hover {
+        background-color: #F2EEEE;
+        color: #3E3E3E;
+    }
+/* ......................................................... */
+
+
+/* .............hero section................................... */
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 2.5rem;
+        position: relative;
+        padding-bottom: 12em;
+        padding-top: 10rem;
+    }
+
+    /*.......background video....... */
+    .video_container {
+        position: absolute;
+        inset: 0;
+        z-index: -10;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(100%) saturate(50%);
+    }
+
+
+    /*.......hide burger button.............*/
+    .burger_menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    .burger_menu div {
+        width: 30px;
+        height: 4px;
+        background-color: #131C46;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+
+    /*............navigation...... */
+    .header_nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 5rem;
+        padding: 1rem 6%;
+        color: #131C46;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease-in-out;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .header_nav:hover {
+        background-color: #d9d9d9;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .header_nav a {
+        text-decoration: none;
+    }
+
+    .header_logo, 
+    .home_icone {
+        align-self: center;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+        text-decoration: none;
+    }
+
+    .header_logo img {
+        height: 5rem;
+        width: 11.25rem;
+    }
+
+    .home_icone img {
+        width: 3.1rem;
+        height: 3.1rem;
+    }
+
+    .home_icone {
+        display: none;
+    }
+
+    .active {
+        border-bottom: #131C46 2px solid;
+    }
+
+
+    /*.......navigation links........*/
+    .header_menu {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        gap: 3rem;
+        list-style-type: none;
+    }
+
+    .header_menu a {
+        font-family: 'montserrat-semibold';
+        font-size: 1.25rem;
+        color: #131C46;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Reduce the navbar on scroll */
+    .scrolled {
+        background: rgba(255, 255, 255, 0.3); /* bg transparent */
+        backdrop-filter: blur(8px); /* add blur*/
+        box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.1);
+        padding: 5px;
+        width: 820px;
+        height: 65px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%); /* horizontal centering */
+        transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        margin-top: 8px;
+        gap: 2rem;
+
+    }
+
+    .scrolled .header_menu {
+        gap: 2.6rem;
+    }
+
+    .scrolled #logo {
+        display: none;
+    }
+
+    .scrolled #home {
+        display: block;
+    }
+
+
+
+
+    /* ........hero title.......... */
+    header h1 {
+        font-family: 'montserrat-extrabold';
+        font-size: 3rem;
+        color: white;
+        font-weight: bold;
+    }
+
+    header h1 span {
+        font-size: 2.6em;
+        color: #131C46;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-color: #131C46;
+        text-underline-offset: 16px;
+    }
+
+
+    .hero_step {
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.7);
+        margin-top: 1rem;
+        color: white;
+        width: fit-content;
+        align-self: center;
+        box-shadow: 0 0 10px black;
+        border-radius: 7rem 1rem;
+        padding: 1.5rem 2rem;
+    }
+
+    .hero_step p {
+        font-family: 'montserrat-medium';
+        font-size: 1.2rem;
+        width: 45ch;
+        padding: 1.25rem;
+    }
+
+    /*........search form.......... */
+    .search {
+        display: flex;
+        align-self: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        width: fit-content;
+        gap: 1rem;
+        border-radius: 50px;
+    }
+
+    .search p {
+        font-family: 'montserrat-medium';
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .search form {
+        display: flex;
+        gap: 1rem;
+        font-size: 1rem;
+        align-items: center;
+    }
+
+    .search_input {
+        font-family: 'montserrat-medium';
+        background: rgba(0, 0, 0, 0);
+        border: 0;
+        color: #fff;
+        padding: 0.5rem 0rem;
+        width: 110px;
+    }
+
+    .search_input:focus {
+        outline: none;
+        border-bottom: #fff 1px solid;
+    }
+
+    .search_button {
+        font-family: 'montserrat-bold';
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        background-color: #FFF ;
+        color: #333;
+        border: 0;
+        transition: background-color 0.3s ease-in-out;
+        border-radius: 0 50px 50px 0;
+        cursor: pointer;
+    }
+
+    .search_button:hover {
+        background-color: #131C46;
+        color: #fff;
+    }
+
+
+    /* ..........travel_plan container..... */
+    .travel_plan {
+        display: flex;
+        align-self: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        width: fit-content;
+        padding-left: 0.8rem;
+        /* gap: 1rem; */
+        border-radius: 50px;
+    }
+
+    .travel_menu {
+        display: inline-block;
+        position: relative;
+    }
+
+    .menuButton {
+        font-family: 'montserrat-medium';
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0);
+        width: 100px;
+        border: 0;
+        color: #fff;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+
+    .menuButton:hover {
+        border-top: #fff 1px solid;
+    }
+
+    /* .....expanded menu....... */
+    .menu {
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        transform-origin: center;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+    }
+
+    /* ........hide menu from travel plan....... */
+    .hidden {
+        visibility: hidden;
+    }
+
+    .menu a {
+        display: block;
+        padding: 0.5rem;
+        font-family: 'montserrat-medium';
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .menu a:hover {
+        background-color: #fff;
+        color: #333;
+        border-radius: 20px;
+        
+    }
+
+    .plan_button {
+        font-family: 'montserrat-bold';
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        background-color: #FFF ;
+        color: #333;
+        border: 0;
+        transition: background-color 0.3s ease-in-out;
+        border-radius: 0 50px 50px 0;
+        cursor: pointer;
+        margin-left: 0.5rem;
+    }
+
+    .plan_button:hover {
+        background-color: #131C46;
+        color: #fff;
+    }
+
+    /* ................scroll top button............ */
+    #scrollTopBtn img {
+        width: 3.1rem;
+        height: 3.1rem;
+        border-radius: 50%;
+    }
+
+    #scrollTopBtn {
+        position: fixed;
+        background-color: #131C46;
+        z-index: 1000;
+        bottom: 30px;
+        right: 30px;
+        width: 3rem;
+        height: 3rem;
+        opacity: 0.5;
+        overflow: hidden;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none; /*...hide button... */
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    #scrollTopBtn:hover {
+        opacity: 1;
+
+    }
+
+
+    /* ...........explore button.............. */
+    #explore_button {
+        width: 80px;
+        margin: 0 auto;
+        transition: color 0.3s ease-in-out;
+        animation: moveButton 3s infinite;
+        cursor: pointer;
+        transition: fill 0.3s ease;
+    }
+
+    #explore_button:hover {
+        opacity: 1 !important; /* display button */
+        animation: none; /* Stop animation */
+
+    }
+
+    @keyframes moveButton {
+        0% { transform: translateY(0); opacity: 1; }
+        50% { transform: translateY(20px); opacity: 0; }
+        60% { opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* change explore button color  */
+    #explore_button:hover svg #path1 {
+        fill: #fff;
+    }
+
+    #explore_button:hover svg #path2 {
+        fill: #131C46;
+    }
+
+
+    /* ........Sub-menu preview................................. */
+    /* ......sections preview container on NavBar....... */
+    .preview-container {
+        position: fixed;
+        top: 60px; /* ....position under the navBar.. */
+        left: 50%; /* ...Centering.. */
+        transform: translateX(-40%);
+        background-color: rgba(217, 217, 217, 0.6);
+        backdrop-filter: blur(8px); /* add blur*/
+        padding: 15px;
+        max-width: 380px;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+        overflow: hidden;
+        border-radius: 50px;
+        max-height: 0;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-in;
+        opacity: 0;
+    }
+
+    /* .....destination card from sub-menu........ */
+    .destination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .destination:nth-child(2) {
+        margin: 20px 0;
+    }
+
+    /* .....destination picture container from sub-menu..... */
+    .destination_figure {
+        width: 200px;
+        height: 120px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    .destination_figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    /* ......destination picture scale from sub-menu....... */
+    .destination:hover img {
+        transform: scale(1.1);
+        filter: brightness(70%);
+    }
+
+    .destination_caption {
+        width: 150px;
+    }
+
+    .destination_caption h4 {
+        font-family: 'montserrat-bold';
+        font-size: 1rem;
+        color: #131C46;
+        margin-bottom: 0.5rem;
+    }
+
+    .destination_caption p {
+        font-family: 'montserrat-medium';
+        font-size: 0.9rem;
+        color: #3E3E3E;
+        background-color: #F2EEEE;
+        padding: 0.5rem;
+        border-radius: 20px;
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ...Expanded destination preview container from sub-menu */
+    .menu-item:hover ~ .preview-container {
+        display: block;
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .preview-container:hover {
+        display: block;
+    }
+
+
+    /* Blog section preview and service section preview on navbar............. */
+    .blog_menu, 
+    .service_list, 
+    .location_list {
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 0.5rem;
+        list-style-type: none;
+        /* background-color: rgba(217, 217, 217, 0.9); */
+    }
+
+    .blog_menu a, 
+    .service_list a, 
+    .location_list a {
+        padding: 0.5rem;
+        color: #333;
+        font-family: 'poppins-medium';
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+
+    /* .......call preview on navbar............ */
+    .call {
+        width: 290px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        gap: 1rem;
+        text-decoration: none;
+    }
+
+    .call img {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;   
+    }
+
+    .call p {
+        text-align: center;
+        font-family: 'montserrat-medium';
+        font-size: 0.9rem;
+        color: #3E3E3E;
+        background-color: #F2EEEE;
+        padding: 0.5rem;
+        line-height: 1.5;
+        border-radius: 20px;
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    .advisor {
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    .phone_bounce {
+        width: 70px;
+        height: 70px;
+        animation: ease-bounce 0.5s ease-out infinite;
+        border: none;
+    }
+
+/* ............................................... */
+
+
+/* ..........Destination section............ */
+    #destination {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto 8.75rem;
+    }
+
+    #destination h2 {
+        font-family: 'montserrat-extrabold';
+        font-size: 4rem;
+        color: #131C46;
+        margin-top: 8.75rem;
+    }
+    .box_destinations {
+        display: flex;
+        flex-direction: column;
+        max-width: 1100px;
+        background-color: #d9d9d9;
+        padding: 3.75rem;
+        gap: 5rem;
+        margin: 5rem auto 2.5rem;
+        border-radius: 6.25rem;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        animation: transform ease 3s;
+    }
+
+    .box_destinations h4 {
+        font-family: 'montserrat-bold';
+        font-size: 1.6rem;
+        color: #131C46;
+    }
+
+    .destination_card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3.75rem;
+    }
+
+    .flip-front img {
+        width: 500px;
+        border-radius: 50px;
+        box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    .destination_place {
+        display: flex;
+        justify-content: center;
+        width: 380px;
+        background-color: #d9d9d9;
+        padding: 1.25rem;
+        border-radius: 20px;
+        text-decoration: none;
+        animation: transform ease 3s;
+    }
+
+    .destination_place a {
+        text-decoration: none;
+    }
+
+    .destination_place h4 {
+        font-family: 'montserrat-bold';
+        font-size: 1.8rem;
+        color: #131C46;
+        margin-bottom: 1.2rem;
+    }
+
+    .destination_place p {
+        font-family: 'montserrat-medium';
+        font-size: 1.2rem;
+        text-align: justify;
+        color: #3E3E3E;
+        background-color: #F2EEEE;
+        padding: 0.9rem;
+        border-radius: 20px;
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    .destination_place p strong {
+        font-family: 'poppins-semibold';
+        color: #131C46; 
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10rem;
+        margin-top: 0.4rem;
+    }
+
+    /* ...........rotation zone............. */
+    .perspective {
+        perspective: 1000px;
+    }
+    
+    .flip-inner {
+        transform-style: preserve-3d;
+        transition: transform 0.7s;
+        position: relative;
+        width: 500px;
+        height: 330px;
+    }
+    
+    .flip-card:hover .flip-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-front,
+    .flip-back {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .flip-back {
+        transform: rotateY(180deg);
+    }
+
+    /* ........map view main page........... */
+    .maptour {
+        width: 500px;
+        height: 330px;
+        border-radius: 50px;
+        box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+
+
+    /* ..........advise section............. */
+    #advice {
+        display: flex;
+        width: 100%;
+        max-width: 800px;
+        margin: 6.25rem auto;
+    }
+
+    .practical_advice {
+        width: 200px;
+        height: 200px;
+        background-color: #d9d9d9;
+        border-radius: 180px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        display: flex;  
+        align-items: center;   
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275); /*Ease with light ease-bounce */
+        animation: ease-bounce 0.5s ease-out infinite;
+    }
+
+    @keyframes ease-bounce {
+        0%, 100% {
+            transform: scale(1.05);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    /* ......Expanded width (640px with scale= 800px)......... */
+    .practical_advice:hover {
+        transform: scale(1.25);
+        margin-left: 80px;
+        width: 640px;
+        animation: none;
+    }
+
+    .advice_title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 190px;
+        transition: all 0.5s ease;
+    }
+
+    .advice_title h4 {
+        font-size: 1.7rem;
+        font-family: 'montserrat-bold';
+        color: #131C46;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+
+    /* ......hide advice content....... */
+    .advice_content {
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 19px 16px 13px 0;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* ......unhide advice content......... */
+    .practical_advice:hover .advice_content {
+        max-width: 432px;
+        opacity: 1;
+    }
+
+    .advice_content p {
+        font-family: 'poppins-medium';
+        color: #3E3E3E;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.5s ease;
+        transition-delay: 0.3s;
+    }
+
+    .advice_content p:nth-child(2) {
+    transition-delay: 0.5s;
+    }
+
+    .advice_content p:nth-child(3) {
+    transition-delay: 0.7s;
+    }
+
+    .practical_advice:hover .advice_content p {
+    opacity: 1;
+    transform: translateX(0);
+    }
+
+
+
+    /* ..........Blog section............. */
+    #blog {
+        padding: 5rem 4%;
+        width: 100%;
+        background-color: #d9d9d9;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        animation: transform ease 3s;
+    }
+
+    #blog h3 {
+        color: #333;
+        font-family: 'montserrat-extrabold';
+        font-size: 2.8rem;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .blog_content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 3.125rem;
+        display: grid;
+        grid-template-columns: auto;
+        gap: 0.625rem;
+        list-style-type: none;
+    }
+
+    .blog_content a {
+        padding-top: 1.875rem;
+        color: #333;
+        font-family: 'poppins-medium';
+        font-size: 1.1rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        cursor: pointer;
+        text-decoration: none;
+        gap: 0.625rem;
+    }
+
+
+    /* ........services section............ */
+      #services {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        text-align: center;
+        margin: 5rem auto;
+        width: 100%;
+        max-width: 1100px;
+    }
+    
+    #services h3 {
+        color: #131c46;
+        font-family: 'montserrat-extrabold';
+        font-size: 3.45rem;
+        font-weight: 700;
+    }
+
+    .box_services_A {
+        gap: 6.25rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box_services_B {
+        gap: 1.25rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .service {
+        display: flex;
+        flex-direction: row;
+        max-width: 500px;
+        height: 170px;
+        gap: 0.625rem;
+        border-radius: 20px;
+        background-color: #d9d9d9;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        padding: 0.9rem;
+        animation: transform ease 3s;
+    }
+
+    .box_services_B .service:nth-child(3) {
+        margin-top: 4rem;
+    }
+    
+    .service_content {
+        max-width: 320px;
+        max-height: 110px;
+        margin: auto;
+    }
+    
+    .service_content h5 {
+        color: #333;
+        font-family: 'montserrat-bold';
+        font-size: 1.25rem;
+    }
+    
+    .service_content p {
+        font-family: 'montserrat-medium';
+        font-size: 1.125rem;
+        border-radius: 15px;
+        font-weight: 500;
+        color: #3E3E3E;
+        background-color: #F2EEEE;
+        line-height: 1.4;
+        padding: 5px;
+        margin-top: 10px;
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+    
+    .service img {
+        width: 150px;
+        height: 130px;
+        border-radius: 20px;
+        box-shadow: 1px 5px 5px;
+        margin: auto;
+    }
+
+
+    /* ........customer reviews section............ */
+      #customer_reviews {
+        text-align: center;
+        margin: 9rem auto;
+        padding: 0 5%;
+        width: 100%;
+    }
+    
+    #customer_reviews h3 {
+        color: #131c46;
+        font-family: 'montserrat-extrabold';
+        font-size: 2.8rem;
+        font-weight: 700;
+    }
+
+    .box_reviews {
+        /* gap: 3.125rem; */
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5rem;
+    }
+
+    .review {
+        max-width: 220px;
+        max-height: 350px;
+        align-items: center;
+        border-radius: 20px;
+        background-color: #d9d9d9;
+        padding: 12px;
+        margin: 1.25rem;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+        animation: transform ease 3s;
+    }
+    
+    .review_content {
+        align-self: auto;
+        margin: auto;
+    }
+    
+    .review_content h5 {
+        color: #333;
+        font-family: 'montserrat-bold';
+        font-size: 1.25rem;
+    }
+    
+    .review_content p:nth-child(2) {
+        font-size: 15px;
+        padding: 5px;
+    }
+    
+    .review_content p:nth-child(3) {
+        font-family: 'montserrat-medium';
+        font-size: 1.125rem;
+        border-radius: 15px;
+        font-weight: 500;
+        color: #3E3E3E;
+        background-color: #F2EEEE;
+        line-height: 1.4;
+        padding: 5px;
+        margin: auto;
+        box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.3);
+    }
+    
+    .review img {
+        width: 150px;
+        height: 130px;
+        border-radius: 20px;
+        border:  #F2EEEE solid;
+        box-shadow: 1px 5px 5px;
+        margin-bottom: 5px;
+    }
+  
+   /* .................Contact section................ */
+    #contact {
+        background-color: #d9d9d9;
+        position: relative;
+        display: flex;
+        width: 100%;
+        padding: 4.3rem 2%;
+        flex-direction: column;
+    }
+    
+    #contact h2 {
+        color: #333;
+        font-family: 'montserrat-extrabold';
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    #contact h2 span {
+        font-family: 'montserrat-bold';
+        font-size: 1.75rem;
+        color: #3e3e3e;
+    }
+
+    .contact_form {
+        align-items: center;
+        margin: 3rem auto 0;
+        border-radius: 20px;
+        background-color: #fff;
+        width: 550px;
+        border-collapse: collapse;
+        box-shadow: 2px 4px 32px 5px rgba(0, 0, 0, 0.2);
+
+    }
+    
+    .message {
+        margin-top: 0.625rem;
+        width: 550px;
+        font-family: 'montserrat-bold';
+        font-size: 1.25rem;
+        color: #3f3e3e;
+        font-weight: 600;
+        text-align: center;
+
+    }
+    
+    .message textarea {
+        border-radius: 25px 25px 0 25px;
+        font-family: 'montserrat-medium';
+        font-size: 1.125rem;
+        width: 540px;
+        height: 100px;
+        border: none;
+        resize: none;
+        padding: 0.6rem;
+        margin-top: 2px;
+    }
+
+    .message textarea:focus {
+        outline: none;
+        border: #131c46 1px solid;
+    }
+
+    .email input:focus {
+        outline: none;
+        border-top: #131c46 1px solid;
+    }
+
+    
+    .email {
+        border-radius: 0 0 20px 20px;
+        align-self: center;
+        display: flex;
+        width: 550px;
+        flex-wrap: nowrap;
+    
+
+    }
+    
+    .email input {
+        border-radius: 20px 20px 0;
+        color: #3f3e3e;
+        font-family: 'montserrat-medium';
+        font-size: 1.125rem;
+        font-weight: 400;
+        margin: auto 5px;
+        width: 420px;
+        padding: 0.625rem 0.9rem;
+        border: none;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3)
+    }
+    
+    /* ........contact send button......... */
+    .send_button {
+        border-radius: 20px 0 20px 0;
+        background-color: #3e3e3e;
+        padding: 0.5rem 1.25rem;
+        font-size: 1.25rem;
+        color: #fff;
+        font-family: 'montserrat-bold';
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        flex-grow: 1;
+    }
+    
+    .send_button:hover {
+        background-color: #131c46;
+    }
+    
+
+    /* ......................Footer......................*/
+    footer {
+        background-color: #d9d9d9;
+        display: flex;
+        width: 100%;
+        padding: 3rem 4% 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer_menu {
+        display: flex;
+        /* text-align: left; */
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+    }
+    
+    .footer_menu article, 
+    .footer_logo article {
+        padding: 1rem;
+    }
+
+    
+    .footer_menu h3, .footer_logo h3 {
+        color: #333;
+        font-family: 'montserrat-bold';
+        font-size: 1.25rem;
+        font-weight: 700;
+        /* text-align: start; */
+    }
+    
+    .footer_links {
+        list-style-type: none;
+        width: 100%;
+        color: #3e3e3e;
+        font-family: 'montserrat-medium';
+        font-size: 1.06rem;
+        font-weight: 400;
+        line-height: 1.7;
+        margin-top: 10px;
+        text-wrap: nowrap;
+    }
+
+    .footer_links a, 
+    .rights a{
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+   
+    /* .....space between contact and partners...... */
+    .footer_menu figure:last-child {
+        margin-top: 1.5rem;
+    }
+    
+    .footer_logo {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+    }
+
+
+    .footer_logo_links {
+        display: flex;
+        min-width: 240px;
+        margin-top: 0.625rem;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+    
+
+    .footer_logo_links a {
+        max-width: 2.8rem;
+        color: #3e3e3e;
+        object-position: center;
+        margin: auto 0;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .travel_logo {
+        height: 7rem;
+        width: 14rem;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+ 
+    /* ......scale animation for interative elements....... */  
+    .travel_logo:hover,
+    .header_logo:hover,
+    .footer_logo_links a:hover,
+    .home_icone:hover {
+        transform: scale(1.2);
+    }
+
+    
+    .about_us h2 {
+        font-family: 'montserrat-bold';
+        font-size: 2rem;
+        color: #333;
+        margin: -10px 0 10px;
+    }
+
+    .about_us p {
+        font-family: 'poppins-medium';
+        color: #3e3e3e;
+        background-color: #F2EEEE;
+        line-height: 1.5;
+        text-align: justify;
+        max-width: 370px;
+        height: 200px;
+        overflow-y: auto;
+        padding: 0.625rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+        /* ........scrollbar about us......... */
+    .about_us p::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* ......cursor color....... */
+    .about_us p::-webkit-scrollbar-thumb {
+        background: #131C46;
+        border-radius: 10px;
+    }
+
+    /* .......cursor color changing when mouse pointed........ */
+    .about_us p::-webkit-scrollbar-thumb:hover {
+        background: #333;
+    }
+    
+    /* .........scrollbar background...... */
+    .about_us p::-webkit-scrollbar-track {
+        background: #fff;
+        margin: 30px 0;
+    }
+    
+    .rights {
+        color: #3e3e3e;
+        font-family: 'montserrat-regular';
+        font-size: 0.9375rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+
+
+/* ................Tablet display.................... */
+
+    @media (max-width: 1024px) {
+
+        /*............navigation...... */
+        .header_nav {
+            height: 4.5rem;
+            padding: 1rem 4%;
+        }
+
+        .header_logo img {
+            height: 4rem;
+        }
+
+        /*.......navigation links........*/
+        .header_menu {
+            gap: 2rem;
+        }
+
+        .header_menu a {
+            font-size: 1.2rem;
+        }
+
+        .scrolled .header_menu {
+            gap: 2rem;
+        }
+
+        /* ..........Destination section............ */
+        #destination h2 {
+            font-size: 3rem;
+            margin-top: 8rem;
+        }
+
+        .box_destinations {
+            max-width: 850px;
+            padding: 2rem;
+            margin: 5rem auto 2rem;
+            border-radius: 5rem;
+            gap: 2.5rem;
+        }
+
+        .box_destinations h4 {
+            font-size: 1.3rem;
+            margin: 1rem 0 0;
+        }
+
+        .destination_card {
+            gap: 1.5rem;
+        }
+
+
+        .flip-front img {
+            width: 380px;
+            border-radius: 35px;
+        }
+
+        .destination_place h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .destination_place p {
+            font-size: 1.1rem;
+            padding: 0.7rem;
+        }
+
+        .destination_place p strong {
+            gap: 10rem;
+        }
+
+        /* ...........rotation zone............. */
+        .perspective {
+            perspective: 800px;
+        }
+        
+        .flip-inner {
+            width: 380px;
+            height: 300px;
+        }
+
+        /* ........map view main page........... */
+        .maptour {
+            width: 380px;
+            height: 300px;
+            border-radius: 35px;
+        }
+
+        .box_services_A, 
+        .box_services_B {
+            gap: 5rem;
+        }
+
+        /* .....change service card disposition and remove margin-top......... */
+        .box_services_B .service:nth-child(1) {
+            flex-direction: row-reverse;
+        }
+
+        .box_services_B .service:nth-child(2) {
+            flex-direction: row-reverse;
+        }
+
+        .box_services_B .service:nth-child(3) {
+            margin-top: 0;
+        }
+    }
+
+
+    @media (max-width: 820px) {
+        body {
+            font-size: 14px;
+        }
+
+        /* .....deactive preview on navbar........... */
+        .preview-container {
+            display: none !important;
+        }
+
+        /*............navigation...... */
+        .header_nav {
+            height: 4.5rem;
+            padding: 0.5rem 1%;
+            justify-content: space-evenly;
+        }
+
+        .header_logo img {
+            height: 3rem;
+        }
+
+        /*.......navigation links........*/
+        .header_menu {
+            gap: 1.8rem;
+        }
+
+        .header_menu a {
+            font-size: 1.15rem;
+        }
+
+        .scrolled {
+            width: 730px;
+            gap: 0.5rem;
+        }
+
+        .scrolled .header_menu {
+            gap: 1.8rem;
+        }
+
+        /* ..........Destination section............ */
+        #destination h2 {
+            font-size: 3rem;
+            margin-top: 8rem;
+        }
+
+        .box_destinations {
+            max-width: 100%;
+            padding: 1.5rem;
+            margin: 4rem auto 0;
+            border-radius: 0;
+        }
+
+        .destination_card {
+            gap: 1.5rem;
+        }
+
+        .destination_place p strong {
+            gap: 8.5rem;
+        }
+
+
+    }
+
+
+
+    @media (max-width: 768px) {
+
+        /*............navigation...... */
+        .header_nav {
+            height: 4.5rem;
+            padding: 0.5rem 1%;
+            justify-content: none;
+        }
+
+        .header_logo img {
+            height: 3rem;
+            margin-left: -50px;
+        }
+
+        /*.......navigation links........*/
+        .header_menu {
+            gap: 1.3rem;
+        }
+
+        .plan_button {
+            padding: 1rem;
+        }
+
+        .scrolled .header_menu {
+            gap: 1.4rem;
+        }
+
+        .destination_place p strong {
+            gap: 5.5rem;
+        }
+
+        /* ..........advise section............. */
+        #advice {
+            max-width: 650px;
+        }
+
+        /* ......Expanded width (640px with scale= 800px)......... */
+        .practical_advice:hover {
+            transform: scale(1.1);
+            margin-left: 10px;
+        }
+
+        .advice_content p {
+            font-size: 0.94rem;
+            padding-right: 0.3rem;
+        }
+    }
+
+
+    @media (max-width: 656px) {
+
+        body {
+            font-size: 12px;
+        }
+
+
+        /*.........home button........ */
+        .home_icone {
+            position: absolute;
+            right: 15px;
+            display: block;
+            
+        }
+
+        /* ........transform navbar(hide) on scroll.... */
+        .scrolled {
+            width: 350px;
+            display: none;
+        }
+
+        .scrolled #logo {
+            display: block;
+        }
+
+        .home_icone img {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .header_nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        /*......display menu burger........... */
+        .burger_menu {
+            display: block;
+            cursor: pointer;
+        }
+
+        /* .......Centering the logo......... */
+        .header_logo {
+            position: absolute;
+            left: 40%;
+            margin-left: 0;
+        }
+
+        /*............. hide navbar menu... */
+        .header_menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 5rem;
+            left: 0.4rem;
+            width: 100%;
+            background-color: #d9d9d9;
+            padding: 1rem 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+
+        /* .........display navbar menu on clic..... */
+        .header_nav.active .header_menu {
+            display: flex;
+            width: fit-content;
+            padding: 1rem;
+            border-radius: 1.5rem ;
+        }
+
+
+        /* ........hero title.......... */
+        header h1 {
+            font-size: 1.4rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .hero_step p {
+            font-size: 1rem;
+            width: 26ch;
+            padding: 1rem;
+        }
+
+        /*........search form.......... */
+        .search {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            gap: 0.5rem;
+            border-radius: 50px;
+        }
+
+        .search form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .search_button {
+            border-radius: 50px;
+        }
+
+        /* ..........travel_plan container..... */
+        .travel_plan {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            padding-left: 0;
+            padding-top: 0.5rem;
+            gap: 1rem;
+            border-radius: 50px;
+        }
+
+
+        /* .....expanded menu....... */
+        .menu {
+            display:inline;
+            border-radius: 20px;    
+            left: 95px;
+        } 
+
+
+        .plan_button {
+            border-radius: 50px;
+            margin-left: 0rem;
+        }
+
+        #destination h2 {
+            font-size: 2.5rem;
+            margin-top: 8rem;
+        }
+
+        .box_destinations {
+            max-width: 100%;
+            padding: 1.5rem;
+            margin: 4rem auto 0;
+            border-radius: 0;
+        }
+
+        .destination_card {
+            flex-direction: column;
+            gap: 0rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .box_destinations h4 {
+            font-size: 1.1rem;
+        }
+
+
+        .flip-front img {
+            width: 350px;
+            border-radius: 0 0 35px 35px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .destination_place h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .destination_place {
+            padding: 0;
+        }
+
+        .destination_place p {
+            font-size: 1rem;
+            width: 350px;
+            border-radius: 35px 35px 0 0;
+        }
+
+        .destination_place p strong {
+            gap: 11rem;
+        }
+
+        /* ...........rotation zone............. */
+        .perspective {
+            perspective: 380px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .flip-inner {
+            width: 350px;
+            border-radius: 0 0 35px 35px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ........map view main page........... */
+        .maptour {
+            width: 350px;
+            padding: 0;
+            margin: 0;
+            border-radius: 0 0 35px 35px;
+        }
+
+        .destination_card:nth-child(2) {
+            flex-direction: column-reverse;
+        }
+
+        .destination_card:nth-child(4) {
+            flex-direction: column-reverse;
+        }
+
+        /* ..........advise section............. */
+        #advice {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 6rem auto;
+        }
+
+        .practical_advice {
+            display: flex;  
+            flex-direction: column;
+            align-items: center;   
+            transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275); /*Ease with light ease-bounce */
+            gap: 50px;
+        }
+
+        .advice_title h4 {
+            padding-top: 55px;
+        }
+
+        .practical_advice:hover {
+            border-radius: 20px;
+            width: 300px;
+            height: 450px;
+            animation: none;
+        }
+
+          /* ......change padding advice content....... */
+        .advice_content {
+            padding: 0 2rem;
+            transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .advice_content p {
+            text-align: center;
+            padding-right: 0;
+        }
+
+        .practical_advice:hover .advice_content {
+            max-height: 450px; 
+            opacity: 1;
+        }
+
+
+        /* ........services section............ */
+        #services h3 {
+            font-size: 2.5rem;
+        }
+        .service img {
+            display: none;
+        }
+
+        /* ....review section..... */
+        #customer_reviews h3 {
+            font-size: 2rem;
+        }
+
+        .review {
+            max-width: 400px;
+            max-height: 350px;
+
+        }
+
+        .review img {
+            display: none;
+        }
+
+
+    /* .................Contact section................ */
+        
+        #contact h2 {
+            font-size: 1.5rem;
+        }
+
+        #contact h2 span {
+            font-size: 1rem;
+        }
+
+        .contact_form {
+            width: 400px;
+        }
+        
+        .message {
+            margin-top: 0.6rem;
+            width: 400px;
+            font-size: 1.1rem;
+        }
+        
+        .message textarea {
+            font-size: 1rem;
+            width: 400px;
+            height: 100px;
+            padding: 0.3rem;
+        }
+        
+        .email {
+            width: 400px;
+        }
+        
+        .email input {
+            font-size: 1rem;
+            width: 300px;
+            padding: 0.625rem 0.6rem;
+        }
+        
+        /* ........contact send button......... */
+        .send_button {
+            padding: 0.5rem 1rem;
+            font-size: 1.1rem;
+        }
+        
+
+    }
