@@ -48,7 +48,7 @@
     }
 
     /* .....box animation...... */
-    /* #socotra_tour:hover,
+    #socotra_tour:hover,
     .carousel_wheather_advice article:hover,
     .tour_practical_advice:hover,
     .tourist_spots:hover,
@@ -59,8 +59,10 @@
     #blog:hover,
     .service:hover, 
     .review:hover {
-        transform: translateY(-10px);
-    } */
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
 
 
 
@@ -1609,6 +1611,11 @@
 
 
     @media (max-width: 768px) {
+
+        /* ..........cookies section....................... */
+        .cookie {
+            width: 20rem;
+        }
 
         /*............navigation...... */
         .header_nav {
