@@ -86,7 +86,7 @@ Pour lancer le projet localement, suivez ces étapes :
 2.  **Clonez le dépôt du projet :**
 
     ```bash
-    git clone <https://github.com/GoneFullRedacted/Projet_agence_voyage>  
+    git clone <https://github.com/Only-tech/Travel_Agency_Evasion_Regular_CSS.git>  
     ```
 
 3.  **Accédez au dossier du projet :**
