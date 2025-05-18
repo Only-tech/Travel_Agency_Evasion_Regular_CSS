@@ -825,7 +825,7 @@
         color: #131C46; 
         display: grid;
         grid-template-columns: auto 1fr;
-        gap: 10rem;
+        gap: 9rem;
         margin-top: 0.4rem;
     }
 
@@ -1391,6 +1391,7 @@
 
     .about_us p {
         font-family: 'poppins-medium';
+        font-size: 1rem;
         color: #3e3e3e;
         background-color: #F2EEEE;
         line-height: 1.5;
@@ -1831,6 +1832,7 @@
         }
 
         .destination_place {
+            width: 350px;
             padding: 0;
         }
 
@@ -1846,7 +1848,7 @@
 
         /* ...........rotation zone............. */
         .perspective {
-            perspective: 380px;
+            perspective: 360px;
             padding: 0;
             margin: 0;
         }
