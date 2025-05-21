@@ -215,26 +215,10 @@
 
     /* ............navigation items....... */
     #nav-items {
-        margin-top: 4rem;
-        background-image: url('/medias/bg_images/test_banniere.png');
+        background: url("../medias/bg_images/test_banniere.png");
         background-size: contain;
         background-position: center;
-    }
-
-    #map-container {
-        display: flex;
-        height: 75vh;
-        width: 100%;
-    }
-
-    #map {
-        margin-left: 0.25rem;
-        flex-grow: 2;
-        width: 75%;
-        /* border-radius: 100px; */
-    }   
-
-    #nav-items {
+        margin-top: 4rem;
         display: flex;
         gap: 2rem;
         padding: 1rem;
@@ -288,15 +272,18 @@
         border: 0;
     }
 
-    #legend {
-        padding: 0.5rem 1rem;
-        background: #e8e8e8;
-        border-top: 1px solid #ccc;
+    #map-container {
+        display: flex;
+        height: 75vh;
+        width: 100%;
     }
 
-    .legend-item {
-        margin-bottom: 0.5rem;
-    }
+    #map {
+        margin-left: 0.25rem;
+        flex-grow: 2;
+        width: 75%;
+        /* border-radius: 100px; */
+    } 
 
     #info-panel h2 {
         margin: 1rem 0 1.5rem 0;
@@ -305,13 +292,22 @@
         font-size: 1.6rem;
         text-decoration: underline 1px black;
         text-underline-offset: 0.5em;
-
     }
 
     #info-panel p {
         margin: 1.5rem 0 0 0;
         font-family: 'poppins-medium';
         padding: 0.5rem;
+    }
+
+    #legend {
+        padding: 0.5rem 1rem;
+        background: #e8e8e8;
+        border-top: 1px solid #ccc;
+    }
+
+    .legend-item {
+        margin-bottom: 0.5rem;
     }
 
 

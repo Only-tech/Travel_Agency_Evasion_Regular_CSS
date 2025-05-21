@@ -164,6 +164,7 @@
         background-color: #131C46;
         color: #fff;
         border: none;
+        flex-grow: 2;
         padding: 0.6rem 1.2rem;
         cursor: pointer;
         font-size: 1rem;
@@ -782,6 +783,7 @@
 
     .flip-front img {
         width: 500px;
+        height: 330px;
         border-radius: 50px;
         box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.3);
         cursor: pointer;
@@ -806,7 +808,7 @@
         font-family: 'montserrat-bold';
         font-size: 1.8rem;
         color: #131C46;
-        margin-bottom: 1.2rem;
+        padding-bottom: 1.2rem;
     }
 
     .destination_place p {
@@ -823,10 +825,9 @@
     .destination_place p strong {
         font-family: 'poppins-semibold';
         color: #131C46; 
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 9rem;
-        margin-top: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.4rem;
     }
 
     /* ...........rotation zone............. */
@@ -1477,7 +1478,7 @@
             padding: 2rem;
             margin: 5rem auto 2rem;
             border-radius: 5rem;
-            gap: 2.5rem;
+            gap: 4rem;
         }
 
         .box_destinations h4 {
@@ -1492,21 +1493,18 @@
 
         .flip-front img {
             width: 380px;
+            height: 260px;
             border-radius: 35px;
         }
 
         .destination_place h4 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            padding-bottom: 1rem;
         }
 
         .destination_place p {
             font-size: 1.1rem;
             padding: 0.7rem;
-        }
-
-        .destination_place p strong {
-            gap: 10rem;
         }
 
         /* ...........rotation zone............. */
@@ -1516,13 +1514,13 @@
         
         .flip-inner {
             width: 380px;
-            height: 300px;
+            height: 260px;
         }
 
         /* ........map view main page........... */
         .maptour {
             width: 380px;
-            height: 300px;
+            height: 260px;
             border-radius: 35px;
         }
 
@@ -1602,11 +1600,6 @@
             gap: 1.5rem;
         }
 
-        .destination_place p strong {
-            gap: 8.5rem;
-        }
-
-
     }
 
 
@@ -1641,10 +1634,6 @@
 
         .scrolled .header_menu {
             gap: 1.4rem;
-        }
-
-        .destination_place p strong {
-            gap: 5.5rem;
         }
 
         /* ..........advise section............. */
@@ -1821,14 +1810,10 @@
 
         .flip-front img {
             width: 350px;
+            height: 240px;
             border-radius: 0 0 35px 35px;
             padding: 0;
             margin: 0;
-        }
-
-        .destination_place h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
         }
 
         .destination_place {
@@ -1842,10 +1827,6 @@
             border-radius: 35px 35px 0 0;
         }
 
-        .destination_place p strong {
-            gap: 11rem;
-        }
-
         /* ...........rotation zone............. */
         .perspective {
             perspective: 360px;
@@ -1855,6 +1836,7 @@
         
         .flip-inner {
             width: 350px;
+            height: 240px;
             border-radius: 0 0 35px 35px;
             padding: 0;
             margin: 0;
@@ -1863,6 +1845,7 @@
         /* ........map view main page........... */
         .maptour {
             width: 350px;
+            height: 240px;
             padding: 0;
             margin: 0;
             border-radius: 0 0 35px 35px;
