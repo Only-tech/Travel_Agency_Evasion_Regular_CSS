@@ -124,6 +124,9 @@ Voici une vue simplifiée de l'organisation du projet :
 │   ├── fonts.css (Styles pour les polices)
 │   ├── socotra.css (Styles spécifiques à la page Socotra)
 │   └── styles.css (Styles globaux)
+├── fonts/
+│   └── Montserrat (Contient les polices)
+│   └── Poppins (Contient les polices)
 ├── img/    (Images du site)
 ├── js/
 │   ├── carroussel.js   (Gestion du carrousel d'images)
